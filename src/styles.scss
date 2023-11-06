@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-  @include displayFlex(row wrap, center, start); // Display flex properties
+  @include displayFlex(row wrap, center, flex-start); // Display flex properties
   @include medium12(); // Font family, size and style
   -webkit-font-smoothing: subpixel-antialiased; // Making fonts stable on all browsers
   text-transform: uppercase;
