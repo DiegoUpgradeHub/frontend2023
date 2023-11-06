@@ -52,9 +52,9 @@
   left: 50%;
   transform: translateX(-50%);
   width: 360px;
-  @include displayFlex(column nowrap, start, center);
+  @include displayFlex(column nowrap, flex-start, center);
   .contactFormHeaderAndFooter {
-    @include displayFlex(row nowrap, space-between, end);
+    @include displayFlex(row nowrap, space-between, flex-end);
     @include bold12();
     text-align: center;
     width: 340px;
@@ -88,7 +88,7 @@
   }
 
   .contactFormBody {
-    @include displayFlex(column nowrap, start, center);
+    @include displayFlex(column nowrap, flex-start, center);
     width: 340px;
     height: 410px;
     overflow-x: hidden;

@@ -44,7 +44,7 @@
     border: $color5;
     background: $color5;
     .grayBackground {
-      @include displayFlex(row nowrap, start, center);
+      @include displayFlex(row nowrap, flex-start, center);
       background: $color4;
       padding: 15px;
       margin-left: 18px;
@@ -136,7 +136,7 @@
     @include displayFlex (row wrap, center, center);
   }
   .introContainer {
-    @include displayFlex (column wrap, start, end);
+    @include displayFlex (column wrap, flex-start, flex-end);
     @include transparentLight();
     width: 50%;
     .image {
@@ -150,11 +150,11 @@
   }
   // Cards styles
   .cardsContainer {
-    @include displayFlex (column wrap, start, start);
+    @include displayFlex (column wrap, flex-start, flex-start);
     width: 50%;
     padding: 0 50px;
     .cardGroup {
-      @include displayFlex(row wrap, start, center);
+      @include displayFlex(row wrap, flex-start, center);
     }
     .card {
       min-width: 327px;

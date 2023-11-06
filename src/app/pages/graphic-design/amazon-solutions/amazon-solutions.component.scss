@@ -3,7 +3,7 @@
 
 // GENERAL STYLES
 .pageContainer {
-  @include displayFlex(column wrap, start, center);
+  @include displayFlex(column wrap, flex-start, center);
   @include medium12();
   margin: 80px 0 0 0;
   padding: 0;
@@ -92,7 +92,7 @@
     @include displayFlex(column wrap, center, center);
     width: 90%;
     .infoContainer {
-      @include displayFlex (row nowrap, center, start);
+      @include displayFlex (row nowrap, center, flex-start);
       text-align: left;
       margin-bottom: 15px;
       .text {
@@ -122,7 +122,7 @@
       @include displayFlex (column wrap, center, center);
       margin: 0;
       .infoContainer{
-        @include displayFlex (row nowrap, start, start);
+        @include displayFlex (row nowrap, flex-start, flex-start);
         .text {
           width: 100%;
           max-width: 450px;
@@ -171,7 +171,7 @@
 @media (min-width: 440px) {
   .introContainer {
     .card {
-      @include displayFlex(row wrap, center, start);
+      @include displayFlex(row wrap, center, flex-start);
       width:30%;
       margin: 20px 5px;
       height: 60px;
@@ -181,7 +181,7 @@
 //INTRO-TEXT BREAKPOINTS
 @media (max-width: 560px) {
   .introText {
-    @include displayFlex(column wrap, center, start);
+    @include displayFlex(column wrap, center, flex-start);
     .title {
       width:90%;
       text-align: left;
@@ -194,7 +194,7 @@
 }
 @media (min-width: 560px) {
   .introText {
-    @include displayFlex(row wrap, center, start);
+    @include displayFlex(row wrap, center, flex-start);
     .title {
       width:30%;
       text-align: right;
@@ -236,7 +236,7 @@
 @media (max-width: 674px) {
   .subservice {
     .block {
-      @include displayFlex (column wrap, center, start);
+      @include displayFlex (column wrap, center, flex-start);
       .textAndGalleryContainer {
         width: 100%;
       }
@@ -249,7 +249,7 @@
 @media (min-width: 674px) {
   .subservice {
     .block {
-      @include displayFlex (row wrap, center, start);
+      @include displayFlex (row wrap, center, flex-start);
       .textAndGalleryContainer {
         width: 50%;
       }

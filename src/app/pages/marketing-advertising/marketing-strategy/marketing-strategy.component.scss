@@ -3,7 +3,7 @@
 
 // GENERAL STYLES
 .pageContainer {
-  @include displayFlex(column wrap, start, center);
+  @include displayFlex(column wrap, flex-start, center);
   @include medium12();
   margin: 100px 0 0 0;
   padding: 0;
@@ -76,7 +76,7 @@
       }
       .bulletContainer {
         .bulletTitle {
-          @include displayFlex(row nowrap, start, center);
+          @include displayFlex(row nowrap, flex-start, center);
           h3 {
             margin: 0 -5px;
             @include bold12();
@@ -107,7 +107,7 @@
 }
 @media (min-width: 440px) {
   .card {
-    @include displayFlex(row wrap, center, start);
+    @include displayFlex(row wrap, center, flex-start);
     width:30%;
     margin: 20px 5px;
     height: 60px;
@@ -116,7 +116,7 @@
 //INTRO-TEXT BREAKPOINTS
 @media (max-width: 560px) {
   .introText {
-    @include displayFlex(column wrap, center, start);
+    @include displayFlex(column wrap, center, flex-start);
     .title {
       width:90%;
       text-align: left;
@@ -129,7 +129,7 @@
 }
 @media (min-width: 560px) {
   .introText {
-    @include displayFlex(row wrap, center, start);
+    @include displayFlex(row wrap, center, flex-start);
     .title {
       width:30%;
       text-align: right;

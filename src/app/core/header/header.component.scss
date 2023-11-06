@@ -43,23 +43,23 @@
   .desktopNav {
     width: 100%;
     .navContainer {
-      @include displayFlex(row wrap, center, start);
+      @include displayFlex(row wrap, center, flex-start);
       margin-top: 10px;
     }
     .logo {
       margin: 0 150px 0 0;
     }
     .categoriesContainer {
-      @include displayFlex(row wrap, start, start);
+      @include displayFlex(row wrap, flex-start, flex-start);
       text-align: center;
       margin: 10px 0;
       .category {
-        @include displayFlex(column wrap, start, start);
+        @include displayFlex(column wrap, flex-start, flex-start);
         @include light();
         margin: 0 8px;
       }
       .service {
-        @include displayFlex (row wrap, start, center);
+        @include displayFlex (row wrap, flex-start, center);
         padding: 0 25px;
       }
       .theme {
@@ -108,14 +108,14 @@
     }
   }
   .dropdownMenu {
-      @include displayFlex(column wrap, start, end);
+      @include displayFlex(column wrap, flex-start, flex-end);
       position: fixed;
       top: 0;
       right: 0;
       text-align: right;
       margin-top: 60px;
     .categoriesContainer {
-      @include displayFlex(column wrap, start, end);
+      @include displayFlex(column wrap, flex-start, flex-end);
       @include light();
       padding: 5px 20px 5px 700px;
     }

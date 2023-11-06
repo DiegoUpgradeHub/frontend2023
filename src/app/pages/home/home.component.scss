@@ -131,7 +131,7 @@
 //Tablet
 @media (min-width: 670px) and (max-width: 850px) {
   .introContainer {
-    @include displayFlex (column wrap, start, start);
+    @include displayFlex (column wrap, flex-start, flex-start);
     padding: 30px 0;
     .imageContainer {
       margin-left: 15%;
@@ -160,7 +160,7 @@
     @include displayFlex (row wrap, center, center);
   }
   .introContainer {
-    @include displayFlex (column wrap, end, end);
+    @include displayFlex (column wrap, flex-end, flex-end);
     @include transparentDark();
     width: 50%;
     height: 500px;
@@ -186,11 +186,11 @@
   }
   // Cards styles
   .cardsContainer {
-    @include displayFlex (column wrap, start, start);
+    @include displayFlex (column wrap, flex-start, flex-start);
     width: 50%;
     padding: 0 50px;
     .cardGroup {
-      @include displayFlex(row wrap, start, center);
+      @include displayFlex(row wrap, flex-start, center);
     }
     .card {
       min-width: 327px;

@@ -3,7 +3,7 @@
 
 // GENERAL STYLES
 .pageContainer {
-  @include displayFlex(column wrap, start, center);
+  @include displayFlex(column wrap, flex-start, center);
   @include medium12();
   margin: 100px 0 0 0;
   padding: 0;
@@ -60,7 +60,7 @@
 
 //GIF + BULLETS
 .gifAndBullets {
-  // @include displayFlex(row nowrap, center, start);
+  // @include displayFlex(row nowrap, center, flex-start);
   @include whiteBlack();
   padding: 20px 0;
   width: 95%;
@@ -76,7 +76,7 @@
   //BULLET POINTS
   .bulletContainer {
     .infoContainer {
-      @include displayFlex (row nowrap, center, start);
+      @include displayFlex (row nowrap, center, flex-start);
       text-align: left;
       margin: 15px 0;
       .text {
@@ -100,7 +100,7 @@
 }
 @media (min-width: 440px) {
   .card {
-    @include displayFlex(row wrap, center, start);
+    @include displayFlex(row wrap, center, flex-start);
     width:30%;
     margin: 20px 5px;
     height: 60px;
@@ -109,7 +109,7 @@
 //INTRO-TEXT BREAKPOINTS
 @media (max-width: 560px) {
   .introText {
-    @include displayFlex(column wrap, center, start);
+    @include displayFlex(column wrap, center, flex-start);
     .title {
       width:90%;
       text-align: left;
@@ -122,7 +122,7 @@
 }
 @media (min-width: 560px) {
   .introText {
-    @include displayFlex(row wrap, center, start);
+    @include displayFlex(row wrap, center, flex-start);
     .title {
       width:30%;
       text-align: right;
@@ -153,7 +153,7 @@
 }
 @media (min-width: 655px) {
   .gifAndBullets {
-    @include displayFlex(row nowrap, center, start);
+    @include displayFlex(row nowrap, center, flex-start);
     .gifContainer {
       width: 45%;
       .gif{
