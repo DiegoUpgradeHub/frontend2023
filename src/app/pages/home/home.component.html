@@ -1,0 +1,55 @@
+<div class="homeContainer">
+  <div class="introContainer" (mouseover)="foto=true" (mouseout)="foto=false">
+    <div class="imageContainer">
+      <img class="logo" routerLink="/graphic-design" *ngIf="!foto" src="../../../assets/images/isotipo.png" alt="isologotipo Diego Perez" />
+      <img class="foto" routerLink="/graphic-design" *ngIf="foto" src="../../../assets/images/diego.png" alt="isologotipo Diego Perez" />
+    </div>
+    <div class="textContainer">
+      <img class="fotoPhone" routerLink="/graphic-design" src="../../../assets/images/diego.png" alt="isologotipo Diego Perez" />
+      <div class="textBlock">
+        <h1>{{"Welcome to Diego's website" | translate}}</h1>
+        <h3>{{"Digital services" | translate}}</h3>
+        <p>{{"Expert in online marketing and advertising, graphic design & web development." | translate}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="cardsContainer">
+    <div class="cardGroup">
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ 'Graphic design' | translate }}</h1>
+            <p>{{ 'Transforming ideas into striking visual designs. Creative solutions that elevate the identity of your brand.' | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a routerLink="/graphic-design" class="cardButton">{{'More information' | translate}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ 'Marketing & Advertising' | translate }}</h1>
+            <p>{{ 'Elevate your brand with effective Marketing & Advertising. Unlock growth, engagement, and success with tailored strategies.' | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a routerLink="/marketing-advertising" class="cardButton cardButtonHome cardButtonWhite">{{'More information' | translate}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ 'Web development' | translate }}</h1>
+            <p>{{ 'Enhance your online presence with web development. From eye-catching websites to dynamic web applications.' | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a routerLink="/web-development" class="cardButton cardButtonHome cardButtonWhite">{{'More information' | translate}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background"></div>
+</div>
+<app-footer class="footerFix"></app-footer>

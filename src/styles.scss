@@ -1,0 +1,53 @@
+@import "../src/app/styles/helpers";
+@import "../src/app/styles/colors";
+
+//Montserrat Font. Regular, Italic & Bold
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  @include displayFlex(row wrap, center, start); // Display flex properties
+  @include medium12(); // Font family, size and style
+  -webkit-font-smoothing: subpixel-antialiased; // Making fonts stable on all browsers
+  text-transform: uppercase;
+  margin: 0;
+}
+
+a, ul, li {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  @include bold12(); // Font family, size and style
+  text-transform: uppercase;
+}
+
+//Colors for themes
+.colorDark {
+  @include dark();
+}
+.colorGrey {
+  @include grey();
+}
+.colorBlue {
+  @include blue();
+}
+.colorPink {
+  @include pink();
+}
+.colorGreen {
+  @include green();
+}
+.colorYellow {
+  @include yellow();
+}

@@ -1,0 +1,178 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+// GENERAL STYLES
+.homeContainer {
+  margin-top: 80px;
+  @include displayFlex (column wrap, center, center);
+  @include medium12();
+}
+//Image and text block
+.introContainer {
+  @include displayFlex (column wrap, center, center);
+  @include light();
+  width: 100%;
+  .textContainer {
+    max-width: 350px;
+    text-align: left;
+    h1 {
+      @include bold16();
+      margin: 0;
+    }
+    h3 {
+      @include italic12();
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+    .italic {
+      @include bold12();
+    }
+  }
+}
+// Cards styles
+.cardsContainer {
+  @include displayFlex (column wrap, center, center);
+  width: 100%;
+  margin: 30px 0;
+  .cardGroup {
+    @include displayFlex(row wrap, center, center);
+  }
+  .card {
+    max-width: 550px;
+    margin: 10px;
+    border-radius: 15px;
+    border: $color5;
+    background: $color5;
+    .grayBackground {
+      @include displayFlex(row nowrap, start, center);
+      background: $color4;
+      padding: 15px;
+      margin-left: 18px;
+      border-radius: 0 15px 15px 0;
+      border: solid $color5 1px;
+    }
+    .textsBox {
+      max-width: 460px;
+      h1 {
+        @include bold16();
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    .buttonsBox {
+      @include displayFlex(column wrap, center, center);
+      width: 40px;
+      .cardButton {
+        @include bold12();
+        @include whiteBlack();
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        .material-symbols-outlined {
+          font-weight: 500;
+        }
+      }
+      .cardButton:hover {
+        @include blackWhite();
+      }
+    }
+  }
+}
+
+//PHONE STYLES
+@media (max-width: 669px) {
+  .introContainer {
+    .image {
+      display: none;
+    }
+    .textContainer {
+      max-width: 500px;
+      margin: 30px;
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    .cardGroup {
+      margin: 0 30px 80px 30px;
+    }
+    .card {
+      .buttonsBox {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+//Tablet
+@media (min-width: 670px) and (max-width: 850px) {
+  .introContainer {
+    flex-direction: row-reverse;
+    padding: 30px 0;
+    .image {
+      margin: 0 20px;
+      max-width: 250px;
+    }
+    .textContainer {
+      width: 350px;
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    .cardGroup {
+      margin: 0 30px 80px 30px;
+    }
+  }
+}
+
+//DESKTOP STYLES
+@media (min-width: 850px) {
+  .homeContainer {
+    @include displayFlex (row wrap, center, center);
+  }
+  .introContainer {
+    @include displayFlex (column wrap, start, end);
+    @include transparentLight();
+    width: 50%;
+    .image {
+      margin: 20px;
+      width: 350px;
+    }
+    .textContainer {
+      margin: 15px 50px 0 0;
+      text-align: right;
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    @include displayFlex (column wrap, start, start);
+    width: 50%;
+    padding: 0 50px;
+    .cardGroup {
+      @include displayFlex(row wrap, start, center);
+    }
+    .card {
+      min-width: 327px;
+    }
+  }
+}
+
+//Footer styles
+.footerFix {
+  display: block;
+}
+@media (min-width: 1440px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

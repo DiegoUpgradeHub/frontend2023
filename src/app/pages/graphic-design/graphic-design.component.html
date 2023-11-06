@@ -1,0 +1,78 @@
+<div class="homeContainer">
+  <div class="introContainer">
+    <div class="textContainer">
+      <h1>{{"Graphic design services." | translate}}</h1>
+      <h3>{{"Digital services" | translate}}</h3>
+      <p>{{"Transforming ideas into striking visual designs. As a senior graphic designer, I offer creative solutions that elevate the identity of your brand." | translate}}</p>
+    </div>
+    <div class="imageContainer">
+      <img class="image" routerLink="/graphic-design" src="../../../assets/images/graphic-design-image.png" alt="isologotipo Diego Perez" />
+    </div>
+  </div>
+  <div class="cardsContainer">
+    <div class="cardGroup">
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "Amazon solutions" | translate }}</h1>
+            <p>{{ "Expert in product gallery, Amazon EBC (A+), and brand stores design to optimize the sales of your products on Amazon." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('Amazon solutions')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/amazon-solutions" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "Advertising material" | translate }}</h1>
+            <p>{{ "Let's make your brand shine with captivating posters, flyers, and web banners. I'm here to boost your ad strategies with stunning visuals." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('Advertising material')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/advertising-material" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "Corporate identity" | translate }}</h1>
+            <p>{{ "As a senior graphic designer and marketing expert, I'll help you create a competitive Corporate Identity. Ensure a memorable brand image with a unique logo, business cards, and more." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('Corporate identity')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/corporate-identity" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background"></div>
+</div>
+<app-footer class="footerFix"></app-footer>

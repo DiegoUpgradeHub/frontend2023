@@ -1,0 +1,84 @@
+<!-- Desktop version -->
+<mat-toolbar class="desktopNav menuNav">
+  <mat-toolbar-row class="navContainer">
+    <img src="../../../assets/images/logotipo.png" alt="isologotipo Diego Perez" class="logo" routerLink="/home" (click)="hideAll()"/>
+    <div class="categoriesContainer">
+      <a class="category" routerLink="/home" (click)="hideAll()">Home</a>
+      <a class="category" routerLink="/graphic-design">{{'Graphic design' | translate}}</a>
+      <a class="category" routerLink="/marketing-advertising" >{{'Marketing & advertising' | translate }}</a>
+      <a class="category" routerLink="/web-development" >{{'Web development' | translate }}</a>
+      <div class="category" (click)="showLanguages()">
+        <a class="iconAndText">
+          <p class="material-symbols-outlined icon">
+          g_translate
+          </p>
+          {{ 'Language' | translate }}
+        </a>
+        <a *ngIf="languages && currentLanguage != 'en'" class="service" (click)="setEnglish()">English</a>
+        <a *ngIf="languages && currentLanguage != 'es'" class="service" (click)="setSpanish()">Español</a>
+        <a *ngIf="languages && currentLanguage != 'de'" class="service" (click)="setGerman()">Deutsch</a>
+      </div>
+      <div class="category" (click)="showThemes()">
+        <div class="iconAndText">
+          <a class="material-symbols-outlined icon">
+            format_color_fill
+          </a>
+          <a>{{ 'Mode' | translate }}</a>
+        </div>
+        <div *ngIf="themes && dayNight" class="theme service" (click)="setThemeDark()">
+          <span class="material-symbols-outlined icons">dark_mode</span>
+          <span>{{ 'Dark' | translate }}</span>
+        </div>
+        <div *ngIf="themes && !dayNight" class="theme service" (click)="setThemeLight()">
+          <span class="material-symbols-outlined icons">light_mode</span>
+          <span>{{ 'Light' | translate }}</span>
+        </div>
+        <div *ngIf="themes" class="theme service" (click)="setRandomTheme()">
+          <span class="material-symbols-outlined icons">
+            sync
+          </span>
+          <span>Random</span>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Phone version -->
+<mat-toolbar class="phoneNav menuNav">
+  <div class="navContainer">
+    <img src="../../../assets/images/logotipo.png" alt="logotipo Diego Perez" class="logo" routerLink="/home" (click)="hideAll()"/>
+    <div *ngIf="!phoneMenu" class="phoneMenu material-symbols-outlined" (click)="showPhoneMenu()">
+      menu
+    </div>
+    <div *ngIf="phoneMenu" clasS="phoneMenu material-symbols-outlined" (click)="hideAll()">
+      menu_open
+    </div>
+  </div>
+  <div class="dropdownMenu">
+    <div *ngIf="phoneMenu" class="categoriesContainer">
+      <a routerLink="/" class="category" (click)="hideAll()">Home</a>
+      <a class="category" (click)="showGraphicServices()">{{'Graphic design' | translate}}</a>
+      <a routerLink="/graphic-design" *ngIf="graphicServices" class="service" (click)="hideAll()">{{'All services' | translate}}</a>
+      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Amazon solutions' | translate}}</a>
+      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Advertising material' | translate}}</a>
+      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Corporate identity' | translate}}</a>
+      <a class="category" (click)="showMarketingServices()">{{'Marketing & Advertising' | translate }}</a>
+      <a routerLink="/marketing-advertising" *ngIf="marketingServices" class="service" (click)="hideAll()">{{'All services' | translate }}</a>
+      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'PPC campaigns' | translate }}</a>
+      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Email marketing' | translate }}</a>
+      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Marketing strategies' | translate }}</a>
+      <a class="category" (click)="showDeveloperServices()">{{'Web development' | translate }}</a>
+      <a routerLink="/web-development" *ngIf="developmentServices" class="service" (click)="hideAll()">{{'All services' | translate }}</a>
+      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Restaurant web-app' | translate }}</a>
+      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'CRM web-app' | translate }}</a>
+      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Maintenance & support' | translate }}</a>
+      <a class="category" (click)="showLanguages()">{{'Language' | translate }}</a>
+      <a *ngIf="languages && currentLanguage != 'en'" class="service" (click)="setEnglish()" (click)="hideAll()">English</a>
+      <a *ngIf="languages && currentLanguage != 'es'" class="service" (click)="setSpanish()" (click)="hideAll()">Español</a>
+      <a *ngIf="languages && currentLanguage != 'de'" class="service" (click)="setGerman()" (click)="hideAll()">Deutsch</a>
+    </div>
+  </div>
+</mat-toolbar>
+
+<div (click)="hideAll()" *ngIf="phoneMenu || graphicServices || marketingServices || developmentServices|| languages || themes" class="darkBackground"></div>

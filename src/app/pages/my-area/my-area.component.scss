@@ -1,0 +1,10 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+.imageContainer {
+  @include displayFlex(column wrap, center, center);
+  margin: 140px 0 80px;
+  .image {
+    width: 80%;
+  }
+}

@@ -1,0 +1,86 @@
+@import './_colors';
+// SCSS Mixins
+@mixin displayFlex ($flow, $justify, $align) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+//COLOR SCHEMES MIXINs
+@mixin dark () { //Theme Dark
+  color: $color5;
+  background: $color2;
+}
+@mixin grey () { //Theme Grey
+  color: $color5;
+  background: $color4;
+}
+@mixin orange () {
+  color: $color5;
+  background: $color3;
+}
+@mixin whiteBlack () {
+  color: $color1;
+  background: $color5;
+}
+@mixin blackWhite () {
+  color: $color5;
+  background: $color1;
+}
+@mixin pink () { //Theme Pink
+  color: $color5;
+  background: $color6;
+}
+@mixin green () { //Theme Green
+  color: $color5;
+  background: $color7;
+}
+@mixin blue () { //Theme blue
+  color: $color5;
+  background: $color8;
+}
+@mixin yellow () { //Theme Yellow
+  color: $color5;
+  background: $color9;
+}
+@mixin light () {
+  color: $color1;
+  background: $color4;
+}
+
+@mixin transparentDark () {
+  color: $color5;
+  background-color: rgba(0,0,0,.3);
+}
+@mixin transparentLight () {
+  color: $color1;
+  background-color: rgba(255,255,255,.7);
+}
+@mixin transparentSemiLight () {
+  color: $color1;
+  background-color: rgba(255,255,255,.85);
+}
+
+//FONTS MIXINs
+@mixin bold12 () {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 12px;
+}
+@mixin bold16 () {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16px;
+}
+@mixin medium12 () {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 12px;
+}
+@mixin italic12 () {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 12px;
+  font-style: italic;
+}

@@ -1,0 +1,80 @@
+<div class="homeContainer">
+  <div class="introContainer">
+    <div class="textContainer">
+      <h1>{{"Marketing & advertising services." | translate}}</h1>
+      <h3>{{"Digital services" | translate}}</h3>
+      <p>{{"Take your brand to new heights with expert solutions. From precision PPC campaigns to tailored marketing strategies." | translate}}</p>
+      <p class="italic">{{"Awareness > consideration > conversion." | translate}}</p>
+    </div>
+    <div class="imageContainer">
+      <img class="image" routerLink="/graphic-design" src="../../../assets/images/marketing-image.png" alt="isologotipo Diego Perez" />
+    </div>
+  </div>
+  <div class="cardsContainer">
+    <div class="cardGroup">
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "PPC campaign" | translate }}</h1>
+            <p>{{ "Maximize ROI through successful Google Ads & Facebook PPC campaigns. Data-driven, creative and analytical skills." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('PPC campaigns')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/ppc-campaign" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "Email marketing" | translate }}</h1>
+            <p>{{ "It's time to transform your leads into buyers, and I'm here to assist with copywriting, design, and email campaign management." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('Email marketing')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/email-marketing" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="grayBackground">
+          <div class="textsBox">
+            <h1>{{ "Marketing strategy" | translate }}</h1>
+            <p>{{ "Elevate your brand's impact and reach with expert guidance in marketing planning and execution." | translate }}</p>
+          </div>
+          <div class="buttonsBox">
+            <a (click)="addProduct('Marketing strategies')" class="cardButton">
+              <span class="material-symbols-outlined">
+                library_add
+              </span>
+            </a>
+            <a routerLink="/marketing-strategy" class="cardButton">
+              <span class="material-symbols-outlined">
+                open_in_new
+                </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="background"></div>
+</div>
+<app-footer class="footerFix"></app-footer>
+

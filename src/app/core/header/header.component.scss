@@ -1,0 +1,134 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+//GENERAL STYLES
+.menuNav { //Common styles in Desktop and Phone
+  z-index: 50;
+  @include displayFlex(row wrap, center, center);
+  @include light();
+  @include bold12();
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  .logo {
+    width: 190px;
+  }
+  .categoriesContainer {
+    .service {
+      @include medium12();
+    }
+  }
+  .material-symbols-outlined {
+    font-weight: 500;
+  }
+}
+
+//Responsive styles Desktop
+@media (max-width: 815px) { //Display none
+  .desktopNav {
+    display: none;
+  }
+}
+@media (max-width: 1167px) { //Logo display none
+  .desktopNav {
+    .logo {
+      display: none;
+    }
+  }
+}
+@media (min-width: 815px) {
+  .desktopNav {
+    width: 100%;
+    .navContainer {
+      @include displayFlex(row wrap, center, start);
+      margin-top: 10px;
+    }
+    .logo {
+      margin: 0 150px 0 0;
+    }
+    .categoriesContainer {
+      @include displayFlex(row wrap, start, start);
+      text-align: center;
+      margin: 10px 0;
+      .category {
+        @include displayFlex(column wrap, start, start);
+        @include light();
+        margin: 0 8px;
+      }
+      .service {
+        @include displayFlex (row wrap, start, center);
+        padding: 0 25px;
+      }
+      .theme {
+        padding: 0 25px;
+        .colorBox {
+          width: 12px;
+          height: 12px;
+          margin: 0 7px 0 0;
+          border-radius: 50%;
+        }
+        .icons {
+          font-size: 18px;
+          margin: 0 3px 0 0;
+        }
+      }
+      .iconAndText {
+        @include displayFlex (row wrap, center, center);
+        .icon {
+          font-size: 18px;
+          margin: 0 3px 0 0;
+        }
+      }
+    }
+  }
+}
+
+//PHONE STYLES
+//Responsive styles Phone
+@media (min-width: 815px) { //display none
+  .phoneNav {
+    display: none;
+  }
+}
+@media (max-width: 815px) {
+  .phoneNav {
+    .navContainer {
+      width: 760px;
+      @include displayFlex(row wrap, space-between, center);
+    }
+    .phoneMenu {
+      font-size: 36px;
+      margin: 0 2px 0 0;
+    }
+    .logo {
+      margin: 0 0 0 25px;
+    }
+  }
+  .dropdownMenu {
+      @include displayFlex(column wrap, start, end);
+      position: fixed;
+      top: 0;
+      right: 0;
+      text-align: right;
+      margin-top: 60px;
+    .categoriesContainer {
+      @include displayFlex(column wrap, start, end);
+      @include light();
+      padding: 5px 20px 5px 700px;
+    }
+  }
+}
+
+//Dark backrgound styles
+.darkBackground {
+  z-index:25;
+  @include transparentDark();
+  position: fixed;
+  bottom:0;
+  top:0;
+  right:0;
+  left:0;
+}

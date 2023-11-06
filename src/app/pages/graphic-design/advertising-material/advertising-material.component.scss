@@ -1,0 +1,226 @@
+@import "../../../styles/helpers";
+@import "../../../styles/colors";
+
+// GENERAL STYLES
+.pageContainer {
+  @include displayFlex(column wrap, start, center);
+  @include medium12();
+  margin: 80px 0 0 0;
+  padding: 0;
+  width: 100%;
+}
+//INTRO BANNER
+.introContainer {
+  @include displayFlex(column nowrap, center, center);
+  @include light();
+  @include bold16();
+  width: 100%;
+  .cardContainer {
+    @include displayFlex(row wrap, center, center);
+    .card {
+      @include displayFlex(row nowrap, center, center);
+      @include whiteBlack();
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px;
+      border: none;
+      .textsBox {
+        @include displayFlex(row nowrap, center, center);
+        a {
+          @include bold12();
+          margin: 0;
+        }
+      }
+    }
+    .card:hover {
+      @include dark();
+      cursor: pointer;
+    }
+  }
+  .introText {
+    margin: 10px;
+    .title {
+      h1 {
+        margin: 0 15px;
+        @include bold16();
+      };
+      h3 {
+        margin: 15px 10px;
+        @include italic12();
+      }
+    }
+    .description {
+      margin: 0 15px;
+      p {
+        margin: 0;
+        @include medium12();
+      };
+    }
+  }
+}
+
+//BULLET POINTS
+.bulletContainer {
+  width:90%;
+  padding: 25px 0;
+  .infoContainer {
+    @include displayFlex (row nowrap, center, start);
+    text-align: left;
+    .text {
+      max-width: 700px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+//DETAILED INFO BANNER
+.subservice {
+  @include displayFlex (column wrap, center, center);
+  @include light();
+  width: 100%;
+  padding: 10px;
+  .titleContainer{
+    h1 {
+      @include bold16();
+      font-size: 1.5rem;
+      margin: 10px;
+    }
+  }
+  .block {
+    .textAndGalleryContainer {
+      @include displayFlex (column wrap, center, center);
+      margin: 0;
+      .infoContainer{
+        @include displayFlex (row nowrap, start, start);
+        .text {
+          width: 100%;
+          max-width: 450px;
+        }
+      }
+      .galleryBox {
+        @include displayFlex (row wrap, center, center);
+        width: 100%;
+        .productGalleryImage {
+          width: 49%;
+          border: none;
+          border-radius: 5px;
+        }
+        .promoEbcStore {
+          width: 100%;
+          margin: 20px;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+    }
+    .promoImageContainer {
+      padding: 5px;
+      .imagePromo {
+        width: 100%;
+        max-width: 800px;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+//INTRO-CARDS BREAKPOINTS
+@media (max-width: 440px) {
+  .introContainer {
+    .card{
+      @include displayFlex(column wrap, center, center);
+      width:90%;
+      margin: 5px 0;
+      height: 30px;
+    }
+  }
+}
+@media (min-width: 440px) {
+  .introContainer {
+    .card {
+      @include displayFlex(row wrap, center, start);
+      width:30%;
+      margin: 20px 5px;
+      height: 60px;
+    }
+  }
+}
+//INTRO-TEXT BREAKPOINTS
+@media (max-width: 560px) {
+  .introText {
+    @include displayFlex(column wrap, center, start);
+    .title {
+      width:90%;
+      text-align: left;
+    }
+    .description {
+      max-width: 750px;
+      width:90%;
+    }
+  }
+}
+@media (min-width: 560px) {
+  .introText {
+    @include displayFlex(row wrap, center, start);
+    .title {
+      width:30%;
+      text-align: right;
+    }
+    .description {
+      max-width: 750px;
+      width:60%;
+    }
+  }
+}
+
+//BULLET POINTS BREAKPOINTS
+@media (max-width: 560px) {
+  .bulletContainer {
+    @include displayFlex(column nowrap, center, start);
+    .infoContainer {
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+}
+@media (min-width: 560px) {
+  .bulletContainer {
+    @include displayFlex(row wrap, center, center);
+    .infoContainer {
+      margin: 10px;
+      width: 45%;
+    }
+  }
+}
+
+//IMAGES BREAKPOINTS
+@media (max-width: 674px) {
+  .subservice {
+    .block {
+      @include displayFlex (column wrap, center, start);
+      .textAndGalleryContainer {
+        width: 100%;
+      }
+      .promoImageContainer {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (min-width: 674px) {
+  .subservice {
+    .block {
+      @include displayFlex (row wrap, center, start);
+      .textAndGalleryContainer {
+        width: 50%;
+      }
+      .promoImageContainer {
+        width: 50%;
+      }
+    }
+  }
+}
+

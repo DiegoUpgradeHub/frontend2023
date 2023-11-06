@@ -1,0 +1,46 @@
+<button class="contactButtonPhone contactButton" *ngIf="contactButton" (click)="showHideForm()">{{'Contact' | translate }}</button>
+<button class="contactButtonDesktop contactButton" *ngIf="contactButton" (click)="showHideForm()">{{'Contact' | translate }}</button>
+
+<div class="contactFormContainer" *ngIf="contactForm" >
+  <div class="contactFormHeaderAndFooter">
+    <p class="title">{{ 'Contact form' | translate }}</p>
+    <p class="closeButton" (click)="showHideForm()" >X</p>
+  </div>
+  <div class="contactFormBody">
+    <mat-form-field class="inputContainer">
+      <mat-label>{{ 'Name' | translate }}</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field class="inputContainer">
+      <mat-label>{{ 'Your company website' | translate }}</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field class="inputContainer">
+      <mat-label>{{ 'Enter your email' | translate }}</mat-label>
+      <input matInput placeholder="hola@diegoperez.es" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <!-- <mat-form-field class="inputContainer">
+      <mat-label>{{ 'Products you are interested in' | translate }}</mat-label>
+      <mat-select [formControl]="products" multiple>
+        <mat-option *ngFor="let product of productsList" [value]="product">{{product}}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <div class="productsSelected">
+      <p *ngIf="productsSelected === []">{{ "Use the + icon to add here the products you are interested in" }}</p>
+      <div>{{this.productsSelected}}</div>
+    </div>
+    <mat-form-field class="inputContainer">
+      <mat-label>{{ 'Write a message' | translate }}</mat-label>
+      <textarea #input matInput></textarea>
+      <mat-hint align="end">{{input.value.length}}/600</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="contactFormHeaderAndFooter">
+    <a class="interviewButton">{{ 'Do the interview' | translate }}</a>
+    <a class="sendButton">{{ 'Send' | translate }}</a>
+  </div>
+</div>
+
+<!-- Dark background -->
+<div (dblclick)="showHideForm()" *ngIf="contactForm" class="darkBackground"></div>

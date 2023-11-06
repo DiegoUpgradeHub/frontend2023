@@ -1,0 +1,199 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+
+// GENERAL STYLES
+.homeContainer {
+  margin-top: 80px;
+  @include displayFlex (column wrap, center, center);
+  @include medium12();
+}
+//Image and text block
+.introContainer {
+  @include displayFlex (column wrap, center, center);
+  @include light();
+  width: 100%;
+  .imageContainer {
+    .logo {
+      margin: 0 20px;
+      max-width: 360px;
+    }
+    .foto {
+      margin: 0 40px;
+      max-width: 280px;
+    }
+  }
+  .textContainer {
+    @include displayFlex (row nowrap, center, center);
+    // flex-direction: row;
+    .fotoPhone {
+      display: none;
+    }
+    .textBlock {
+      max-width: 350px;
+      text-align: left;
+      h1 {
+        @include bold16();
+        margin: 0;
+      }
+      h3 {
+        @include italic12();
+        letter-spacing: 6px;
+        margin: -10px 0 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+// Cards styles
+.cardsContainer {
+  @include displayFlex (column wrap, center, center);
+  width: 100%;
+  margin: 30px 0;
+  .cardGroup {
+    @include displayFlex(row wrap, center, center);
+  }
+  .card {
+    max-width: 550px;
+    margin: 10px;
+    border-radius: 15px;
+    border: $color5;
+    background: $color5;
+    .grayBackground {
+      background: $color4;
+      padding: 15px;
+      margin-left: 18px;
+      border-radius: 0 15px 15px 0;
+      border: solid $color5 1px;
+    }
+    .textsBox {
+      max-width: 460px;
+      h1 {
+        @include bold16();
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    .buttonsBox {
+      @include displayFlex(column wrap, center, center);
+      width: 100%;
+      .cardButton {
+        @include displayFlex(column wrap, center, center);
+        @include bold12();
+        @include whiteBlack();
+        font-weight: 700;
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+        width: 80%;
+        height: 35px;
+        border-radius: 5px;
+      }
+      .cardButton:hover {
+        @include blackWhite();
+      }
+    }
+  }
+}
+
+//PHONE STYLES
+@media (max-width: 669px) {
+  .introContainer {
+    .imageContainer {
+      .logo {
+        max-width: 300px;
+      }
+    }
+    .textContainer {
+      .textBlock {
+        max-width: 360px;
+        margin: 30px;
+      }
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    .cardGroup {
+      margin: 0 30px 80px 30px;
+    }
+    .card {
+      .buttonsBox {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+//Tablet
+@media (min-width: 670px) and (max-width: 850px) {
+  .introContainer {
+    @include displayFlex (column wrap, start, start);
+    padding: 30px 0;
+    .imageContainer {
+      margin-left: 15%;
+    }
+    .textContainer {
+      margin-left: 15%;
+      flex-direction: row-reverse;
+      .fotoPhone {
+        display: block;
+        max-width: 238px;
+        margin: -125px 10px 0;
+      }
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    .cardGroup {
+      margin: 0 30px 80px 30px;
+    }
+  }
+}
+
+//DESKTOP STYLES
+@media (min-width: 850px) {
+  .homeContainer {
+    @include displayFlex (row wrap, center, center);
+  }
+  .introContainer {
+    @include displayFlex (column wrap, end, end);
+    @include transparentDark();
+    width: 50%;
+    height: 500px;
+    .imageContainer {
+      margin: 0 20px;
+      .logo {
+        margin: 30px 0;
+        max-width: 390px;
+        filter: invert(100%);
+      }
+      .foto {
+        display: block;
+        margin: 0 40px;
+        max-width: 280px;
+      }
+    }
+    .textContainer {
+      margin: 0 50px 70px;
+      .textBlock {
+        text-align: right;
+      }
+    }
+  }
+  // Cards styles
+  .cardsContainer {
+    @include displayFlex (column wrap, start, start);
+    width: 50%;
+    padding: 0 50px;
+    .cardGroup {
+      @include displayFlex(row wrap, start, center);
+    }
+    .card {
+      min-width: 327px;
+    }
+  }
+}

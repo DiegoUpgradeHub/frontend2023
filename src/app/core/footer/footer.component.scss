@@ -1,0 +1,52 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+.footerContainer {
+  z-index: 50;
+  @include displayFlex(column wrap, center, center);
+  @include light();
+  @include medium12();
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  .languagesThemesAreasContainer {
+    @include displayFlex(row wrap, center, center);
+    margin: 15px 0 0 0;
+    .themeLanguagesContainer {
+      @include displayFlex(row wrap, center, center);
+      .theme  {
+        @include displayFlex(row wrap, center, center);
+        margin: 6px 0 0;
+      }
+      .languages  {
+        @include displayFlex(row wrap, center, center);
+        .button {
+          @include transparentDark();
+        }
+      }
+    }
+    .areasContainer {
+      @include displayFlex(row wrap, center, center);
+      .button {
+        @include transparentLight();
+      }
+    }
+  }
+  .legalContainer {
+    @include displayFlex(row wrap, center, center);
+    font-size: 10px;
+    font-style: italic;
+    p {
+      margin: 0 5px 15px;
+    }
+  }
+  //GENERAL ELEMENTS
+  .button {
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 3px;
+  }
+  .cursor {
+    cursor: pointer;
+  }
+}

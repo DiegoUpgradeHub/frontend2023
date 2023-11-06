@@ -1,0 +1,187 @@
+@import "../../../styles/helpers";
+@import "../../../styles/colors";
+
+// GENERAL STYLES
+.pageContainer {
+  @include displayFlex(column wrap, start, center);
+  @include medium12();
+  margin: 100px 0 0 0;
+  padding: 0;
+  width: 100%;
+}
+//INTRO BANNER
+.introContainer {
+  @include displayFlex(column nowrap, center, center);
+  @include bold16();
+  width: 100%;
+  .cardContainer {
+    @include displayFlex(row wrap, center, center);
+    .card {
+      @include displayFlex(row nowrap, center, center);
+      @include light();
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px;
+      border: none;
+      .textsBox {
+        @include displayFlex(row nowrap, center, center);
+        a {
+          @include bold12();
+          margin: 0;
+        }
+      }
+    }
+    .card:hover {
+      @include dark();
+      cursor: pointer;
+    }
+  }
+  .introText {
+    margin: 10px;
+    .title {
+      h1 {
+        margin: 0 15px;
+        @include bold16();
+      };
+      h3 {
+        margin: 0 15px;
+        @include italic12();
+      }
+    }
+    .description {
+      margin: 0 15px;
+      p {
+        margin: 0;
+        @include medium12();
+      };
+    }
+  }
+}
+//Strategies styles
+.strategiesContainer {
+  width:95%;
+  .strategy {
+    @include whiteBlack();
+    border-radius: 5px;
+    margin: 20px 0;
+    width: 100%;
+    padding: 10px;
+    .titleBulletContainer {
+      .titleContainer {
+        @include displayFlex (column, center, center);
+        width: 100%;
+        h1 {
+          @include bold16();
+        }
+      }
+      .bulletContainer {
+        .bulletTitle {
+          @include displayFlex(row nowrap, start, center);
+          h3 {
+            margin: 0 -5px;
+            @include bold12();
+          }
+        }
+        .bulletBody {
+          padding: 0 20px 0 40px;
+        }
+      }
+    }
+    .gifContainer {
+      @include displayFlex (column, center, center);
+      .gif {
+        width:90%;
+      }
+    }
+  }
+}
+
+//INTRO-CARD BREAKPOINTS
+@media (max-width: 440px) {
+  .card{
+    @include displayFlex(column wrap, center, center);
+    width:90%;
+    margin: 5px 0;
+    height: 30px;
+  }
+}
+@media (min-width: 440px) {
+  .card {
+    @include displayFlex(row wrap, center, start);
+    width:30%;
+    margin: 20px 5px;
+    height: 60px;
+  }
+}
+//INTRO-TEXT BREAKPOINTS
+@media (max-width: 560px) {
+  .introText {
+    @include displayFlex(column wrap, center, start);
+    .title {
+      width:90%;
+      text-align: left;
+    }
+    .description {
+      max-width: 750px;
+      width:90%;
+    }
+  }
+}
+@media (min-width: 560px) {
+  .introText {
+    @include displayFlex(row wrap, center, start);
+    .title {
+      width:30%;
+      text-align: right;
+    }
+    .description {
+      max-width: 750px;
+      width:60%;
+    }
+  }
+}
+
+// //STRATEGIES BREAKPOINTS
+@media (max-width: 540px) {
+  .strategiesContainer {
+      .strategy {
+        @include displayFlex (column nowrap, center, center);
+        .titleBulletContainer {
+          width: 100%;
+        }
+        .gifContainer {
+          width: 250px;
+        }
+      }
+    }
+  }
+@media (min-width: 540px) {
+  .strategiesContainer {
+    .strategy {
+      @include displayFlex (row nowrap, center, center);
+      .titleBulletContainer {
+        width: 60%;
+      }
+      .gifContainer {
+        width: 40%;
+      }
+    }
+    .invertOrder {
+      @include displayFlex (row-reverse nowrap, center, center);
+    }
+  }
+}
+
+//Footer styles
+.footerFix {
+  display: block;
+}
+@media (min-width: 1595px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

@@ -1,0 +1,113 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+//CONTACT BUTTON STYLES
+.contactButton {
+  z-index: 99;
+  @include bold16();
+  @include orange();
+  border: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 50px;
+  position: fixed;
+  bottom: 35px;
+}
+//Responsive styles Desktop for Contact Button
+@media (max-width: 768px) { //Display none
+  .contactButtonDesktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1100px) { //Normal desktop
+  .contactButtonDesktop {
+    right: 5%;
+  }
+}
+@media (min-width: 1100px) { //Big screens
+  .contactButtonDesktop {
+    right: 10%;
+  }
+}
+
+//Responsive styles Phone for Contact Button
+@media (min-width: 768px) { //Display none
+  .contactButtonPhone {
+    display: none;
+  }
+}
+@media (max-width: 768px) { //Phone version
+  .contactButtonPhone {
+    right: 25px;
+  }
+}
+
+//CONTACT FORM STYLES
+.contactFormContainer {
+  z-index: 99;
+  @include transparentSemiLight();
+  position: fixed;
+  bottom: 50px;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  @include displayFlex(column nowrap, start, center);
+  .contactFormHeaderAndFooter {
+    @include displayFlex(row nowrap, space-between, end);
+    @include bold12();
+    text-align: center;
+    width: 340px;
+    height: 50px;
+    margin: 10px;
+    .title {
+      @include bold16();
+      margin: 15px;
+    }
+    .closeButton {
+      @include bold16();
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .interviewButton {
+      @include whiteBlack();
+      padding: 10px;
+      border-radius: 5px;
+      width: 180px;
+    }
+    .interviewButton:hover {
+      @include blackWhite();
+    }
+    .sendButton{
+      @include orange();
+      padding: 10px;
+      border-radius: 5px;
+      width: 150px;
+    }
+  }
+
+  .contactFormBody {
+    @include displayFlex(column nowrap, start, center);
+    width: 340px;
+    height: 410px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .inputContainer {
+      width:340px;
+    }
+  }
+
+}
+
+//Dark backrgound styles
+.darkBackground {
+  z-index:75;
+  background: $color1;
+  opacity: 75%;
+  position: fixed;
+  bottom:0;
+  top:0;
+  right:0;
+  left:0;
+}
