@@ -18,28 +18,6 @@
         <a *ngIf="languages && currentLanguage != 'es'" class="service" (click)="setSpanish()">Español</a>
         <a *ngIf="languages && currentLanguage != 'de'" class="service" (click)="setGerman()">Deutsch</a>
       </div>
-      <div class="category" (click)="showThemes()">
-        <div class="iconAndText">
-          <a class="material-symbols-outlined icon">
-            format_color_fill
-          </a>
-          <a>{{ 'Mode' | translate }}</a>
-        </div>
-        <div *ngIf="themes && dayNight" class="theme service" (click)="setThemeDark()">
-          <span class="material-symbols-outlined icons">dark_mode</span>
-          <span>{{ 'Dark' | translate }}</span>
-        </div>
-        <div *ngIf="themes && !dayNight" class="theme service" (click)="setThemeLight()">
-          <span class="material-symbols-outlined icons">light_mode</span>
-          <span>{{ 'Light' | translate }}</span>
-        </div>
-        <div *ngIf="themes" class="theme service" (click)="setRandomTheme()">
-          <span class="material-symbols-outlined icons">
-            sync
-          </span>
-          <span>Random</span>
-        </div>
-      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
