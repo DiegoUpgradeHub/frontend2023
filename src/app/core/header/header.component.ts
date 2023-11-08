@@ -70,18 +70,21 @@ export class HeaderComponent {
     this.sharedService.currentLanguage = 'en';
     this.sharedService.productsList = this.sharedService.productsListEnglish;
     this.sharedService.setCurrentLanguage();
+    this.hideAll();
   }
   setSpanish(){
     this.sharedService.currentLanguage = 'es';
     this.appComponent.setAppLanguageSpanish();
     this.sharedService.productsList = this.sharedService.productsListSpanish;
     this.sharedService.setCurrentLanguage();
+    this.hideAll();
   }
   setGerman(){
     this.appComponent.setAppLanguageGerman();
     this.sharedService.currentLanguage = 'de';
     this.sharedService.productsList = this.sharedService.productsListGerman;
     this.sharedService.setCurrentLanguage();
+    this.hideAll();
   }
 
   //MENU FUNCTIONS

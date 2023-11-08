@@ -60,23 +60,23 @@
       <a routerLink="/" class="category" (click)="hideAll()">Home</a>
       <a class="category" (click)="showGraphicServices()">{{'Graphic design' | translate}}</a>
       <a routerLink="/graphic-design" *ngIf="graphicServices" class="service" (click)="hideAll()">{{'All services' | translate}}</a>
-      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Amazon solutions' | translate}}</a>
-      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Advertising material' | translate}}</a>
-      <a *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Corporate identity' | translate}}</a>
+      <a routerLink="/amazon-solutions" *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Amazon solutions' | translate}}</a>
+      <a routerLink="/advertising-material" *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Advertising material' | translate}}</a>
+      <a routerLink="/corporate-identity" *ngIf="graphicServices" class="service" (click)="hideAll()">{{'Corporate identity' | translate}}</a>
       <a class="category" (click)="showMarketingServices()">{{'Marketing & Advertising' | translate }}</a>
       <a routerLink="/marketing-advertising" *ngIf="marketingServices" class="service" (click)="hideAll()">{{'All services' | translate }}</a>
-      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'PPC campaigns' | translate }}</a>
-      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Email marketing' | translate }}</a>
-      <a *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Marketing strategies' | translate }}</a>
+      <a routerLink="/ppc-campaign" *ngIf="marketingServices" class="service" (click)="hideAll()">{{'PPC campaigns' | translate }}</a>
+      <a routerLink="/email-marketing" *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Email marketing' | translate }}</a>
+      <a routerLink="/marketing-strategy" *ngIf="marketingServices" class="service" (click)="hideAll()">{{'Marketing strategies' | translate }}</a>
       <a class="category" (click)="showDeveloperServices()">{{'Web development' | translate }}</a>
       <a routerLink="/web-development" *ngIf="developmentServices" class="service" (click)="hideAll()">{{'All services' | translate }}</a>
-      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Restaurant web-app' | translate }}</a>
-      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'CRM web-app' | translate }}</a>
-      <a *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Maintenance & support' | translate }}</a>
+      <a routerLink="/restaurant-webapp" *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Restaurant web-app' | translate }}</a>
+      <a routerLink="/crm-webapp" *ngIf="developmentServices" class="service" (click)="hideAll()">{{'CRM web-app' | translate }}</a>
+      <a routerLink="/maintenance-support" *ngIf="developmentServices" class="service" (click)="hideAll()">{{'Maintenance & support' | translate }}</a>
       <a class="category" (click)="showLanguages()">{{'Language' | translate }}</a>
-      <a *ngIf="languages && currentLanguage != 'en'" class="service" (click)="setEnglish()" (click)="hideAll()">English</a>
-      <a *ngIf="languages && currentLanguage != 'es'" class="service" (click)="setSpanish()" (click)="hideAll()">Español</a>
-      <a *ngIf="languages && currentLanguage != 'de'" class="service" (click)="setGerman()" (click)="hideAll()">Deutsch</a>
+      <a *ngIf="languages && currentLanguage != 'en'" class="service" (click)="setEnglish()">English</a>
+      <a *ngIf="languages && currentLanguage != 'es'" class="service" (click)="setSpanish()">Español</a>
+      <a *ngIf="languages && currentLanguage != 'de'" class="service" (click)="setGerman()">Deutsch</a>
     </div>
   </div>
 </mat-toolbar>
