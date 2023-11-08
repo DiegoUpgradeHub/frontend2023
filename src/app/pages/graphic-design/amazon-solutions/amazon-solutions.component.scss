@@ -32,10 +32,6 @@
         }
       }
     }
-    .card:hover {
-      @include dark();
-      cursor: pointer;
-    }
   }
   .introText {
     margin: 10px;
@@ -81,10 +77,6 @@
           margin: 0;
         }
       }
-    }
-    .card:hover {
-      @include whiteBlack();
-      cursor: pointer;
     }
   }
   //BULLET POINTS
@@ -255,6 +247,25 @@
       }
       .promoImageContainer {
         width: 50%;
+      }
+    }
+  }
+}
+//BUTTONS HOVER FEATURE
+@media (min-width: 850px) {
+  .introContainer {
+    .cardContainer {
+      .card:hover {
+        @include dark();
+        cursor: pointer;
+      }
+    }
+  }
+  .buttonsAndBullets {
+    .cardContainer {
+      .card:hover {
+        @include whiteBlack();
+        cursor: pointer;
       }
     }
   }

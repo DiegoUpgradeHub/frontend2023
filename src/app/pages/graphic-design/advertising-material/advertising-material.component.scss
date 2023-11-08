@@ -32,10 +32,6 @@
         }
       }
     }
-    .card:hover {
-      @include dark();
-      cursor: pointer;
-    }
   }
   .introText {
     margin: 10px;
@@ -224,3 +220,14 @@
   }
 }
 
+//BUTTONS HOVER FEATURE
+@media (min-width: 850px) {
+  .introContainer {
+    .cardContainer {
+      .card:hover {
+        @include dark();
+        cursor: pointer;
+      }
+    }
+  }
+}

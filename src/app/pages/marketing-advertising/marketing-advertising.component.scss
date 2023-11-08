@@ -79,9 +79,6 @@
           font-weight: 500;
         }
       }
-      .cardButton:hover {
-        @include blackWhite();
-      }
     }
   }
 }
@@ -159,6 +156,11 @@
     }
     .card {
       min-width: 327px;
+      .buttonsBox {
+        .cardButton:hover {
+          @include blackWhite();
+        }
+      }
     }
   }
 }
