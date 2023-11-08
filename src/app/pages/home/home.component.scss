@@ -93,9 +93,9 @@
         height: 35px;
         border-radius: 5px;
       }
-      .cardButton:hover {
-        @include blackWhite();
-      }
+      // .cardButton:hover {
+      //   @include blackWhite();
+      // }
     }
   }
 }
@@ -194,6 +194,11 @@
     }
     .card {
       min-width: 327px;
+      .buttonsBox {
+        .cardButton:hover {
+          @include blackWhite();
+        }
+      }
     }
   }
 }
