@@ -66,6 +66,10 @@ const routes: Routes = [
     path: `maintenance-support`, loadChildren: () =>
       import('./pages/web-development/maintenance-support/maintenance-support.module').then(m => m.MaintenanceSupportModule)
   },
+  {
+    path: `services`, loadChildren: () =>
+    import ('./pages/services/services.module').then(m => m.ServicesModule)
+  },
 
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];

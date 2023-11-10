@@ -23,6 +23,7 @@
         .button {
           @include transparentDark();
           @include displayFlex(row wrap, center, center);
+          cursor: pointer;
           .flag {
             width: 20px;
             margin-right: 5px;
@@ -33,6 +34,7 @@
     .areasContainer {
       @include displayFlex(row wrap, center, center);
       .button {
+        cursor: pointer;
         @include transparentLight();
       }
     }
