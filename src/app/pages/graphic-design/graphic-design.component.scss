@@ -19,6 +19,7 @@
     h1 {
       @include bold16();
       margin: 0;
+      line-height: 20px;
     }
     h3 {
       @include italic12();

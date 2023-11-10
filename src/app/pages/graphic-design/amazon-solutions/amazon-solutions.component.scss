@@ -15,6 +15,11 @@
   @include light();
   @include bold16();
   width: 100%;
+  .categoryCard {
+    @include displayFlex(column wrap, center, center);
+    width: 100%;
+    margin: 10px;
+  }
   .cardContainer {
     @include displayFlex(row wrap, center, center);
     .card {
