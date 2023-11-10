@@ -22,6 +22,11 @@
         @include displayFlex(row wrap, center, center);
         .button {
           @include transparentDark();
+          @include displayFlex(row wrap, center, center);
+          .flag {
+            width: 20px;
+            margin-right: 5px;
+          }
         }
       }
     }
