@@ -20,16 +20,6 @@
       <input matInput placeholder="hola@diegoperez.es" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
-    <!-- <mat-form-field class="inputContainer">
-      <mat-label>{{ 'Products you are interested in' | translate }}</mat-label>
-      <mat-select [formControl]="products" multiple>
-        <mat-option *ngFor="let product of productsList" [value]="product">{{product}}</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-    <div class="productsSelected">
-      <p *ngIf="productsSelected === []">{{ "Use the + icon to add here the products you are interested in" }}</p>
-      <div>{{this.productsSelected}}</div>
-    </div>
     <mat-form-field class="inputContainer">
       <mat-label>{{ 'Write a message' | translate }}</mat-label>
       <textarea #input matInput></textarea>

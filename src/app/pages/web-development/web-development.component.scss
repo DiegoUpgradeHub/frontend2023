@@ -43,7 +43,7 @@
     border: $color5;
     background: $color5;
     .grayBackground {
-      @include displayFlex(row nowrap, flex-start, center);
+      @include displayFlex(column nowrap, flex-start, flex-start);
       background: $color4;
       padding: 15px;
       margin-left: 18px;
@@ -62,23 +62,18 @@
     }
     .buttonsBox {
       @include displayFlex(column wrap, center, center);
-      width: 40px;
+      width: 100%;
       .cardButton {
+        @include displayFlex(column wrap, center, center);
         @include bold12();
         @include whiteBlack();
         text-align: center;
         padding: 5px;
         margin: 5px;
-        width: 35px;
+        width: 80%;
         height: 35px;
         border-radius: 5px;
-        .material-symbols-outlined {
-          font-weight: 500;
-        }
       }
-      // .cardButton:hover {
-      //   @include blackWhite();
-      // }
     }
   }
 }
@@ -168,7 +163,7 @@
 .footerFix {
   display: block;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1441px) {
   .footerFix {
     display: block;
     position: fixed;
