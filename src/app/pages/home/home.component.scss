@@ -190,3 +190,17 @@
     }
   }
 }
+
+//Footer styles
+.footerFix {
+  display: block;
+}
+@media (min-width: 1441px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
