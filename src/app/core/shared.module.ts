@@ -33,6 +33,7 @@ import { SignInComponent } from '../pages/my-area/sign-in/sign-in.component';
 
 import { ServicesComponent } from '../pages/services/services.component';
 import { GlossaryComponent } from '../pages/glossary/glossary.component';
+import { AboutComponent } from '../pages/about/about.component';
 
 //Angular Material
 import { MatMenuModule } from '@angular/material/menu';
@@ -71,7 +72,8 @@ import { MatInputModule } from '@angular/material/input';
     SignInComponent,
 
     ServicesComponent,
-    GlossaryComponent
+    GlossaryComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
@@ -116,7 +118,8 @@ import { MatInputModule } from '@angular/material/input';
     SignInComponent,
 
     ServicesComponent,
-    GlossaryComponent
+    GlossaryComponent,
+    AboutComponent
   ]
 })
 export class SharedModule { }

@@ -74,6 +74,10 @@ const routes: Routes = [
     path: `glossary`, loadChildren: () =>
     import ('./pages/glossary/glossary.module').then(m => m.GlossaryModule)
   },
+  {
+    path: `about`, loadChildren: () =>
+    import ('./pages/about/about.module').then(m => m.AboutModule)
+  },
 
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
