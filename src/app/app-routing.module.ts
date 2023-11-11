@@ -70,6 +70,10 @@ const routes: Routes = [
     path: `services`, loadChildren: () =>
     import ('./pages/services/services.module').then(m => m.ServicesModule)
   },
+  {
+    path: `glossary`, loadChildren: () =>
+    import ('./pages/glossary/glossary.module').then(m => m.GlossaryModule)
+  },
 
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];

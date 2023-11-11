@@ -35,20 +35,9 @@ export class FooterComponent {
   }
 
   ngOnInit(): void {
-    this.detectBrowserLanguage();
   }
 
   //LANGUAGES FUNCTIONS
-  detectBrowserLanguage(){
-    const browserLang = this.translateService.getBrowserLang();
-    if (browserLang === 'es') {
-      this.setSpanish();
-    } else if (browserLang === 'de') {
-      this.setGerman();
-    } else {
-      this.setEnglish();
-    }
-  }
   setEnglish(){
     this.appComponent.setAppLanguageEnglish();
     this.sharedService.currentLanguage = 'en';
