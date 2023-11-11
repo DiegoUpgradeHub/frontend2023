@@ -1,0 +1,31 @@
+@import "../../styles/helpers";
+@import "../../styles/colors";
+
+// GENERAL STYLES
+.glossaryContainer {
+  margin-top: 100px;
+  @include displayFlex (row wrap, center, flex-start);
+  @include medium12();
+}
+
+.Term {
+  border-left: solid 1px white;
+  margin: 5px;
+  padding: 5px;
+  max-width: 333px;
+}
+
+//Footer styles
+.footerFix {
+  margin-top: 30px;
+  display: block;
+}
+@media (min-width:2500px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
