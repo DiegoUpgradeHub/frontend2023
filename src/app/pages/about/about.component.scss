@@ -6,4 +6,130 @@
   margin-top: 100px;
   @include displayFlex (row wrap, center, flex-start);
   @include medium12();
+  width: 100%;
+  .firstBlock {
+    width:50%;
+    @include displayFlex (column wrap, center, flex-end);
+    padding: 10px 30px 10px 10px;
+    .imageContainer {
+      @include displayFlex (column wrap, center, center);
+      .image {
+        border-bottom: solid 4px white;
+      }
+      .image:hover {
+        content: url("../../../assets/images/diego-about.png");
+        content: class(".inverted");
+      }
+    }
+    .contactContainer {
+      @include displayFlex (row wrap, center, center);
+      // padding: 0 30px;
+      margin: 20px 0 0;
+      .contact {
+        cursor: pointer;
+        @include displayFlex (row wrap, flex-start, flex-start);
+        margin: 5px;
+        .logoContainer {
+          .logo {
+            width: 20px;
+            margin-right: 5px;
+          }
+        }
+      }
+      // .contact:hover {
+      //   @include displayFlex (column wrap, center, center);
+      //   margin: 5px;
+      //   .logoContainer {
+      //     .logo {
+      //       width: 100px;
+      //       margin-right: 5px;
+      //     }
+      //   }
+      // }
+    }
+  }
+  .secondBlock {
+    width:50%;
+    @include displayFlex (column wrap, center, flex-start);
+    // width: 70%;
+    padding: 10px 10px 10px 30px;
+    // max-width: 600px;
+    .textContainer {
+      @include displayFlex (column wrap, center, flex-start);
+      margin: 10px 0;
+      h1 {
+        @include bold16();
+        font-size: 24px;
+        margin: 0;
+      }
+      h2 {
+        @include italic12();
+        margin: 0;
+      }
+      p {
+        @include medium12();
+      }
+      a {
+        @include bold12();
+        @include whiteBlack();
+        padding: 5px 10px;
+        margin-bottom:10px;
+        border-radius: 2px;
+      }
+    }
+    .skillsContainer {
+      @include displayFlex (row wrap, center, center);
+      padding: 0 30px;
+      .skill {
+        @include displayFlex (row wrap, flex-start, flex-start);
+        margin: 5px;
+        .logoContainer {
+          .logo {
+            width: 20px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Desktop
+@media (max-width: 860px) {
+  .aboutContainer {
+    @include displayFlex (column wrap, center, center);
+    .firstBlock {
+      @include displayFlex (column wrap, center, center);
+      width:100%;
+      .imageContainer {
+        width:100%;
+        @include displayFlex (column wrap, center, center);
+        .image {
+          width: 300px;
+          content: url("../../../assets/images/diego-about.png");
+          border-bottom: solid 4px white;
+        }
+      }
+    }
+    .secondBlock {
+      padding: 30px 15px 15px 15px;
+      width: 100%;
+    }
+  }
+}
+
+
+//Footer styles
+.footerFix {
+  margin-top: 30px;
+  display: block;
+}
+@media (min-width:860px) and (min-height:860px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
