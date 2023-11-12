@@ -180,11 +180,25 @@
   }
 }
 
+// //Footer styles
+// .footerFix {
+//   display: block;
+// }
+// @media (min-width: 1595px) {
+//   .footerFix {
+//     display: block;
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//   }
+// }
 //Footer styles
 .footerFix {
+  margin-top: 30px;
   display: block;
 }
-@media (min-width: 1595px) {
+@media (min-width:800px) and (min-height:860px) {
   .footerFix {
     display: block;
     position: fixed;
