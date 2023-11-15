@@ -9,6 +9,8 @@ import { SharedService } from 'src/app/core/shared.service';
 import { HeaderComponent } from '../header/header.component';
 import { Subscription } from 'rxjs';
 
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -32,6 +34,11 @@ export class ContactComponent {
   contactFormSubscribed: Subscription;
   darkBackground = document.querySelector('#darkBackground');
 
+  //SNACKBAR variables
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds = 10;
+
   constructor(
     public headerComponent: HeaderComponent,
     public translateService: TranslateService,
@@ -40,6 +47,7 @@ export class ContactComponent {
     private formBuilder: FormBuilder,
     public messagesService: MessagesService,
     public router: Router,
+    private _snackBar: MatSnackBar,
   ) {
     //Toggle button and form contact
     this.contactButtonSubscribed = sharedService.contactButtonSubscription.subscribe(value => {
@@ -82,12 +90,30 @@ export class ContactComponent {
   contactMe() {
     if (this.contactMeForm.valid) {
       this.messagesService.createMessage(this.contactMeForm.value).subscribe((res) => {
-          alert('Message sent successfully');
+          // alert('Message sent successfully');
           window.location.reload();
       })
     } else {
-      alert('Your contact form is invalid');
+      // alert('Your contact form is invalid');
     }
+  }
+
+  //SNACKBAR function
+  openSnackBar() {
+    if (this.contactMeForm.valid) {
+      this._snackBar.open('Message sent correct', 'X', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: this.durationInSeconds * 1000,
+      });
+    } else {
+      this._snackBar.open('Message not sent', 'X', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: this.durationInSeconds * 1000,
+      });
     }
+  }
 
 }
+

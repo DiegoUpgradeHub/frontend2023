@@ -33,7 +33,7 @@
     </mat-form-field>
   </div>
   <div class="contactFormHeaderAndFooter">
-    <button type="submit" class="sendButton">{{ 'Send' | translate }}</button>
+    <button type="submit" class="sendButton" (click)="openSnackBar()">{{ 'Send' | translate }}</button>
   </div>
 </form>
 
