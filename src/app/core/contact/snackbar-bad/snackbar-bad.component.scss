@@ -1,0 +1,17 @@
+@import "../../../styles/helpers";
+@import "../../../styles/colors";
+
+//SNACKBAR STYLES
+h1 {
+  @include bold16();
+  margin: 0;
+}
+p {
+  @include medium12();
+  margin: 0;
+}
+.line {
+  height: 5px;
+  width: 50px;
+  background: red;
+}

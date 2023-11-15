@@ -1,13 +1,15 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { MessagesService } from 'src/app/services/services/messages.service';
+
+import { HeaderComponent } from '../header/header.component';
+import { SnackbarGoodComponent } from './snackbar-good/snackbar-good.component';
+import { SnackbarBadComponent } from './snackbar-bad/snackbar-bad.component';
 
 import { SharedService } from 'src/app/core/shared.service';
-import { HeaderComponent } from '../header/header.component';
-import { Subscription } from 'rxjs';
+import { MessagesService } from 'src/app/services/services/messages.service';
 
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
 
@@ -89,25 +91,19 @@ export class ContactComponent {
 
   contactMe() {
     if (this.contactMeForm.valid) {
-      this.messagesService.createMessage(this.contactMeForm.value).subscribe((res) => {
-          // alert('Message sent successfully');
-          window.location.reload();
-      })
-    } else {
-      // alert('Your contact form is invalid');
-    }
-  }
-
-  //SNACKBAR function
-  openSnackBar() {
-    if (this.contactMeForm.valid) {
-      this._snackBar.open('Message sent correct', 'X', {
+      //SNACKBAR function
+      this._snackBar.openFromComponent(SnackbarGoodComponent, {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
         duration: this.durationInSeconds * 1000,
       });
+      //CREATE MESSAGE function
+      this.messagesService.createMessage(this.contactMeForm.value).subscribe((res) => {
+          window.location.reload();
+      })
     } else {
-      this._snackBar.open('Message not sent', 'X', {
+      //SNACKBAR function
+      this._snackBar.openFromComponent(SnackbarBadComponent, {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
         duration: this.durationInSeconds * 1000,
