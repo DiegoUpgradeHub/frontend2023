@@ -1,7 +1,7 @@
 <button class="contactButtonPhone contactButton" *ngIf="contactButton" (click)="showHideForm()">{{'Contact' | translate }}</button>
 <button class="contactButtonDesktop contactButton" *ngIf="contactButton" (click)="showHideForm()">{{'Contact' | translate }}</button>
 
-<div class="contactFormContainer" *ngIf="contactForm" >
+<form class="contactFormContainer" *ngIf="contactForm" (ngSubmit)="contactMe()" [formGroup]="contactMeForm">
   <div class="contactFormHeaderAndFooter">
     <p class="title">{{ 'Contact form' | translate }}</p>
     <p class="closeButton" (click)="showHideForm()" >X</p>
@@ -9,28 +9,33 @@
   <div class="contactFormBody">
     <mat-form-field class="inputContainer">
       <mat-label>{{ 'Name' | translate }}</mat-label>
-      <input matInput>
+      <input matInput formControlName="name" maxlength="15" required>
+      <mat-error *ngIf="nameFormControl?.errors?.['required']">{{"This field is mandatory." | translate}}</mat-error>
+      <mat-error *ngIf="nameFormControl?.errors?.['minlength']">{{"Place a real name." | translate}}</mat-error>
     </mat-form-field>
     <mat-form-field class="inputContainer">
       <mat-label>{{ 'Your company website' | translate }}</mat-label>
-      <input matInput>
+      <input matInput formControlName="company" maxlength="60" required>
+      <mat-error *ngIf="companyFormControl?.errors?.['required']">{{"This field is mandatory." | translate}}</mat-error>
+      <mat-error *ngIf="companyFormControl?.errors?.['pattern']">{{"Invalid URL." | translate}}</mat-error>
     </mat-form-field>
     <mat-form-field class="inputContainer">
       <mat-label>{{ 'Enter your email' | translate }}</mat-label>
-      <input matInput placeholder="hola@diegoperez.es" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="contact@diegoperez.es" formControlName="email" required>
+      <mat-error *ngIf="emailFormControl?.errors?.['required']">{{"This field is mandatory." | translate}}</mat-error>
+      <mat-error *ngIf="emailFormControl?.errors?.['pattern']">{{"Invalid email." | translate}}</mat-error>
     </mat-form-field>
     <mat-form-field class="inputContainer">
       <mat-label>{{ 'Write a message' | translate }}</mat-label>
-      <textarea #input matInput></textarea>
-      <mat-hint align="end">{{input.value.length}}/600</mat-hint>
+      <textarea #input matInput formControlName="message" maxlength="300" required></textarea>
+      <mat-hint align="end">{{input.value.length}}/300</mat-hint>
+      <mat-error *ngIf="messageFormControl?.errors?.['required']">{{"This field is mandatory." | translate}}</mat-error>
     </mat-form-field>
   </div>
   <div class="contactFormHeaderAndFooter">
-    <a class="interviewButton">{{ 'Do the interview' | translate }}</a>
-    <a class="sendButton">{{ 'Send' | translate }}</a>
+    <button type="submit" class="sendButton">{{ 'Send' | translate }}</button>
   </div>
-</div>
+</form>
 
 <!-- Dark background -->
 <div (dblclick)="showHideForm()" *ngIf="contactForm" class="darkBackground"></div>

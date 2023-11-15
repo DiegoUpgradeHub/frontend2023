@@ -1,23 +1,23 @@
 <div class="pageContainer">
-  <div class="contactFormContainer">
+  <form class="contactFormContainer" [formGroup]="signinForm" (ngSubmit)="loginUser()">
     <div class="contactFormHeader">
-      <p class="title">{{ 'Sign in' | translate }}</p>
+      <h3 class="title">{{"Sign in" | translate }}</h3>
     </div>
     <div class="contactFormBody">
       <mat-form-field class="inputContainer">
         <mat-label>{{ 'User' | translate }}</mat-label>
-        <input matInput placeholder="hola@diegoperez.es" [formControl]="email" required>
+        <input matInput placeholder="contact@diegoperez.es" type="text" formControlName="email" required>
         <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="inputContainer">
         <mat-label>{{ 'Password' | translate }}</mat-label>
-        <input matInput>
+        <input matInput type="password" formControlName="password">
       </mat-form-field>
-    <div class="contactFormFooter">
-      <a class="sendButton">{{ 'Send' | translate }}</a>
-      <p class="message" (click)="showHideForm()">{{"Problems to sign in. Contact me." | translate}}</p>
     </div>
-  </div>
+    <div class="contactFormFooter">
+      <button type="submit" class="sendButton">{{"Send" | translate }}</button>
+    </div>
+  </form>
 </div>
 
 <app-footer class="footerFix"></app-footer>

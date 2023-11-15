@@ -1,3 +1,55 @@
-<div class="imageContainer">
+<!-- <div class="imageContainer">
   <img class="image" src="../../../assets/images/gallery-promo.png"/>
+</div> -->
+
+<div class="user-profile-page-box">
+  <h1>Welcome to finteria account area</h1>
+  <p>Here you'll find relevant information related to services, invoices, deadlines, reports, etc.</p>
+  <div class="card user-profile-info" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-4">
+        <img class="img-fluid rounded-start profile-image" src="https://cdn-icons-png.flaticon.com/512/2102/2102647.png" class="card-img-top" alt="profile-image">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h5 class="card-title">Perfil del usuario</h5>
+          <p class="card-text" [hidden]="this.currentUser.role !== 'admin'">Rol del usuario: {{this.currentUser?.role}}</p>
+          <p class="card-text"><small class="text-muted">Nombre: {{this.currentUser?.name}}</small></p>
+          <p class="card-text"><small class="text-muted">Apellidos: {{this.currentUser?.name}}</small></p>
+          <p class="card-text"><small class="text-muted">Correo: {{this.currentUser?.email}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="messagesBox">
+    <h1>Messages</h1>
+    <div *ngFor="let message of messages;">
+      <div class="messageCard column g-0">
+        <fieldset class="row g-0 mx-1">
+          <small class="col-2">ID:</small>
+          <p class="col-10">{{message._id}}</p>
+        </fieldset>
+        <fieldset class="row g-0 mx-1">
+          <small class="col-2">Name:</small>
+          <p class="col-10">{{message.name}}</p>
+        </fieldset>
+        <fieldset class="row g-0 mx-1">
+          <small class="col-2 my-1">Message:</small>
+          <p class="col-10">{{message.message}}</p>
+        </fieldset>
+        <fieldset class="row g-0 mx-1">
+          <small class="col-2">Email:</small>
+          <p class="col-10">{{message.email}}</p>
+        </fieldset>
+        <fieldset class="row g-0 mx-1">
+          <small class="col-2">Label:</small>
+          <p class="col-4">{{message.label}}</p>
+          <div class="col-6 row justify-content-end">
+            <button class="col-5 mx-1 btn btn-warning grip-label-button">Edit <i class="bi bi-pencil-square"></i></button>
+            <button class="col-5 btn btn-danger grip-label-button" (click)="deletingMessage()">Delete <i class="bi bi-trash3"></i></button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
 </div>

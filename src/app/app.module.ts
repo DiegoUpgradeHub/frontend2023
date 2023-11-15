@@ -7,8 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //in18
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //Components
 import { AppComponent } from './app.component';
@@ -18,6 +17,9 @@ import { SharedModule } from './core/shared.module';
 
 //Services
 import { SharedService } from './core/shared.service';
+
+//Database
+import { AuthInterceptor } from './services/services/interceptors/authconfig.interceptor';
 
 
 @NgModule({
@@ -38,7 +40,13 @@ import { SharedService } from './core/shared.service';
       }
     })
   ],
-  providers: [SharedService],
+  providers: [SharedService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

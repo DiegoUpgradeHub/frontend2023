@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,8 +24,9 @@ const routes: Routes = [
       import('./core/contact/contact.module').then(m => m.ContactModule)
   },
   {
-    path: `my-area`, loadChildren: () =>
-      import('./pages/my-area/my-area.module').then(m => m.MyAreaModule)
+    path: `user-area/:id`, loadChildren: () =>
+      import('./pages/my-area/my-area.module').then(m => m.MyAreaModule),
+      canActivate: [AuthGuard]
   },
   {
     path: `sign-in`, loadChildren: () =>
