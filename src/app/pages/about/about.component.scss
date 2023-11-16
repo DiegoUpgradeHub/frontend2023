@@ -23,29 +23,21 @@
     }
     .contactContainer {
       @include displayFlex (row wrap, center, center);
-      // padding: 0 30px;
       margin: 20px 0 0;
       .contact {
         cursor: pointer;
-        @include displayFlex (row wrap, flex-start, flex-start);
+        @include displayFlex (row wrap, center, center);
         margin: 5px;
         .logoContainer {
           .logo {
-            width: 20px;
+            width: 40px;
             margin-right: 5px;
           }
         }
+        p {
+          display: none;
+        }
       }
-      // .contact:hover {
-      //   @include displayFlex (column wrap, center, center);
-      //   margin: 5px;
-      //   .logoContainer {
-      //     .logo {
-      //       width: 100px;
-      //       margin-right: 5px;
-      //     }
-      //   }
-      // }
     }
   }
   .secondBlock {
@@ -119,6 +111,69 @@
   }
 }
 
+@media (min-width: 768px) {
+  .aboutContainer {
+    .firstBlock {
+      .contactContainer {
+        .contact:hover {
+          @include displayFlex (column wrap, center, center);
+          margin: 5px;
+          .logoContainer {
+            .logo {
+              width: 60px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Contact pop up
+.contactPopup {
+  z-index: 99;
+  @include light();
+  @include displayFlex (column nowrap, center, center);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border: none;
+  border-radius: 2px;
+  h1 {
+    @include bold12();
+    line-height: normal;
+    font-size: 1.4rem;
+    margin: 0
+  }
+  .buttons {
+    @include displayFlex (row wrap, space-between, center);
+    width: 100%;
+    margin: 20px 0 0;
+    a {
+      @include dark();
+      @include displayFlex (row wrap, center, center);
+      padding: 10px;
+      border-radius: 2px;
+      width: 48%;
+      // height: 40px;
+    }
+  }
+}
+
+//Dark backrgound styles
+.darkBackground {
+  z-index:75;
+  background: $color1;
+  opacity: 75%;
+  position: fixed;
+  bottom:0;
+  top:0;
+  right:0;
+  left:0;
+}
 
 //Footer styles
 .footerFix {

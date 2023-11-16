@@ -1,4 +1,5 @@
 <div class="aboutContainer">
+  <!-- COMIENZO DEL PRIMER BLOQUE -->
   <div class="firstBlock">
     <div class="imageContainer">
       <img class="image" src="../../../assets/images/diego.png" alt="diego-perez" />
@@ -6,36 +7,36 @@
     <div class="contactContainer">
       <div class="contact">
         <div class="logoContainer">
-          <img class="logo" src="../../../assets/images/about-icons/behance.png" alt="behance" />
+          <a href="https://www.behance.net/graphicteam-dp" target="_blank">
+            <img class="logo" src="../../../assets/images/about-icons/behance.png" alt="behance" />
+          </a>
         </div>
-        <p><a href="https://www.behance.net/graphicteam-dp" target="_blank">Behance</a></p>
       </div>
       <div class="contact">
         <div class="logoContainer">
-          <img class="logo" src="../../../assets/images/about-icons/github.png" alt="github" />
+          <a href="https://github.com/developerteam-dp" target="_blank">
+            <img class="logo" src="../../../assets/images/about-icons/github.png" alt="github" />
+          </a>
         </div>
-        <p><a href="https://github.com/developerteam-dp" target="_blank">Github</a></p>
       </div>
-      <div class="contact">
+      <div class="contact" (click)="contactInstagram()">
         <div class="logoContainer">
           <img class="logo" src="../../../assets/images/about-icons/instagram.png" alt="instagram" />
         </div>
-        <p>@hallo.diego</p>
       </div>
-      <div class="contact">
+      <div class="contact" (click)="contactWhatsapp()">
         <div class="logoContainer">
           <img class="logo" src="../../../assets/images/about-icons/whatsapp.png" alt="whatsapp" />
         </div>
-        <p>+49 176 626 769 49</p>
       </div>
-      <div class="contact">
+      <div class="contact" (click)="contactGmail()">
         <div class="logoContainer">
           <img class="logo" src="../../../assets/images/about-icons/gmail.png" alt="gmail" />
         </div>
-        <p>contact@diegoperez.es</p>
       </div>
     </div>
   </div>
+  <!-- COMIENZO DEL SEGUNDO BLOQUE -->
   <div class="secondBlock">
     <div class="textContainer">
       <h1>Diego Pérez Rodríguez</h1>
@@ -216,4 +217,14 @@
     </div>
   </div>
 </div>
+<!-- CONTACT POPUP -->
+<div class="contactPopup" *ngIf="contactPopup">
+  <h1>{{contact}}</h1>
+  <div class="buttons">
+    <a (click)="closePopup()">Close</a>
+    <a (click)="copyContact()">Copy</a>
+  </div>
+</div>
+<div (dblclick)="closePopup()" *ngIf="contactPopup" class="darkBackground"></div>
+
 <app-footer class="footerFix"></app-footer>
