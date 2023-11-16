@@ -26,7 +26,6 @@ export class ContactComponent {
   public messageFormControl!: FormControl;
   public companyFormControl!: FormControl;
   currentDate = new Date().toUTCString();
-  // currentDate = new Date().toISOString();
   emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   urlRegex =  /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/
 
