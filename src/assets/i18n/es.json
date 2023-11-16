@@ -35,6 +35,10 @@
   "Write a message": "Escribe un mensaje",
   "Do the interview": "Haz la entrevista",
   "Send": "Enviar",
+  "Error sending message": "Error al enviar el mensaje",
+  "Message sent successfully": "Mensaje enviado correctamente",
+  "Thanks for your interest.": "Gracias por ponerte en contacto",
+  "I will get back to you as soon as possible": "Me pondré en contacto lo antes posible",
 
   "__TEXTS FROM HOME COMPONENT__": "Here texts from Contact Component",
   "Welcome to Diego's website": "Bienvenido a la página de Diego",

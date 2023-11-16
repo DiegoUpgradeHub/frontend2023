@@ -27,7 +27,7 @@ export class ContactComponent {
   public companyFormControl!: FormControl;
   currentDate = new Date().toISOString();
   emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  urlRegex =  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig;
+  urlRegex =  /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/
 
   //TOGGLE CONTACT BUTTON variables
   contactButton: boolean = true;
