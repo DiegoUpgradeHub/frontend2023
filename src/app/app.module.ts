@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatRippleModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,7 +29,6 @@ import { AuthInterceptor } from './services/services/interceptors/authconfig.int
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatRippleModule,
     SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({

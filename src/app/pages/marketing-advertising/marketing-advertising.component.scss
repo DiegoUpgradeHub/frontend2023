@@ -18,14 +18,16 @@
     h1 {
       @include bold16();
       margin: 0;
-      line-height: 20px;
+      line-height: 1.7rem;
     }
     h3 {
       @include italic12();
+      line-height: 1.6rem;
       margin: 0;
     }
     p {
       margin: 0;
+      line-height: 1.2rem;
     }
     .italic {
       @include bold12();
@@ -58,9 +60,11 @@
       max-width: 460px;
       h1 {
         @include bold16();
+        line-height: 1.4rem;
         margin: 0;
       }
       p {
+        line-height: 1.2rem;
         margin: 0;
       }
     }
@@ -168,7 +172,7 @@
 .footerFix {
   display: block;
 }
-@media (min-width: 1441px) {
+@media (min-width:800px) and (min-height:860px) {
   .footerFix {
     display: block;
     position: fixed;

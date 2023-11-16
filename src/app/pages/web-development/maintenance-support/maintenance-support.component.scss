@@ -18,6 +18,11 @@
     @include displayFlex(column wrap, center, center);
     width: 100%;
     margin: 10px;
+    h1 {
+      @include bold16();
+      line-height: 1.7rem;
+      margin: 0 15px;
+    };
   }
   .cardContainer {
     @include displayFlex(row wrap, center, center);
@@ -41,19 +46,22 @@
     margin: 10px;
     .title {
       h1 {
-        margin: 0 15px;
         @include bold16();
+        line-height: 1.7rem;
+        margin: 0 15px;
       };
       h3 {
-        margin: 0 15px;
         @include italic12();
+        line-height: 1.6rem;
+        margin: 0 15px;
       }
     }
     .description {
       margin: 0 15px;
       p {
-        margin: 0;
         @include medium12();
+        line-height: 1.2rem;
+        margin: 0;
       };
     }
   }
@@ -180,19 +188,6 @@
   }
 }
 
-// //Footer styles
-// .footerFix {
-//   display: block;
-// }
-// @media (min-width: 1595px) {
-//   .footerFix {
-//     display: block;
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//   }
-// }
 //Footer styles
 .footerFix {
   margin-top: 30px;
