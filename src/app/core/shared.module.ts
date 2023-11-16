@@ -11,6 +11,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
+import { SnackbarBadComponent } from './contact/snackbar-bad/snackbar-bad.component';
+import { SnackbarGoodComponent } from './contact/snackbar-good/snackbar-good.component';
 import { HomeComponent } from '../pages/home/home.component';
 
 import { GraphicDesignComponent } from '../pages/graphic-design/graphic-design.component';
@@ -44,6 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -51,6 +55,8 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
+    SnackbarGoodComponent,
+    SnackbarBadComponent,
     HomeComponent,
 
     GraphicDesignComponent,
@@ -90,6 +96,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatSnackBarModule,
+    MatButtonModule,
     //in18
     TranslateModule,
   ],
@@ -97,6 +105,8 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
+    SnackbarGoodComponent,
+    SnackbarBadComponent,
     HomeComponent,
 
     GraphicDesignComponent,
