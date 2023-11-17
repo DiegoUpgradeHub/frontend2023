@@ -1,10 +1,35 @@
 @import "../../styles/helpers";
 @import "../../styles/colors";
 
-.imageContainer {
-  @include displayFlex(column wrap, center, center);
-  margin: 140px 0 80px;
-  .image {
-    width: 80%;
+// GENERAL STYLES
+.myAreaContainer {
+  margin-top: 100px;
+  @include displayFlex (column wrap, center, center);
+  @include medium12();
+  //CRUD BOX
+  .crudBox {
+    @include displayFlex (row wrap, center, center);
+    // @include transparentLight();
+    border-radius: 5px;
+    padding: 20px;
+    h1 {
+      @include bold16();
+      line-height: 1.7rem;
+      margin: 0;
+    }
+    a {
+      @include transparentDark();
+      @include medium12();
+      padding: 5px;
+      margin: 0 0 0 15px;
+    }
+  }
+  //MESSAGES BOX
+  .messagesBox {
+    @include displayFlex (column wrap, center, center);
+    border-bottom: solid 5px white;
+    border-top: solid 5px white;
+    padding: 20px 0;
+    margin: 20px 5px;
   }
 }

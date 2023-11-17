@@ -1,0 +1,85 @@
+@import "../../../styles/helpers";
+@import "../../../styles/colors";
+
+// GENERAL STYLES
+.messagesContainer {
+  @include displayFlex (column nowrap, center, flex-start);
+  max-width: 900px;
+  h1 {
+    line-height: 1.7rem;
+    margin: 10px;
+  }
+  .filtersBox {
+    @include displayFlex (row nowrap, center, center);
+    a {
+      @include displayFlex (row nowrap, center, center);
+      @include light();
+      @include bold12();
+      line-height: nomrla;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+  .messagesBox {
+    @include displayFlex (row nowrap, flex-start, flex-start);
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 900px;
+    .messageCard {
+      @include displayFlex (column nowrap, center, center);
+      width: 350px;
+      border-radius: 5px;
+      margin: 5px;
+      .messageHeader {
+        @include displayFlex (row nowrap, space-between, center);
+        @include light();
+        @include bold16();
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        padding: 15px;
+        p {
+          line-height: normal;
+          margin: 0;
+        }
+      }
+      .messageBody {
+        @include displayFlex (column wrap, flex-start, flex-start);
+        width: 100%;
+        padding: 15px;
+        @include transparentLight();
+        .email {
+          @include bold12();
+          line-height: normal;
+        }
+        .message {
+          width: 100%;
+          @include medium12();
+          line-height: normal;
+        }
+      }
+      .messageFooter {
+        @include displayFlex (row nowrap, space-between, center);
+        @include medium12();
+        @include transparentLight();
+        font-size: 10px;
+        width: 100%;
+        padding: 0 15px;
+        line-height: normal;
+        .label {
+          font-weight: 1000;
+        }
+      }
+      .messageActions {
+        @include displayFlex (row nowrap, space-between, center);
+        @include transparentDark();
+        @include bold16();
+        width: 100%;
+        padding: 15px;
+        border-radius: 0 0 5px 5px;
+      }
+    }
+  }
+
+  //CRUD BOX
+}

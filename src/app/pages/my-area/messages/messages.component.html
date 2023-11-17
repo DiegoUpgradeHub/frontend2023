@@ -1,0 +1,33 @@
+<div class="messagesContainer">
+  <h1>{{ 'Messages' | translate }}</h1>
+  <div class="filtersBox">
+    <a (click)="getMessages()">Todos</a>
+    <a (click)="getReadMessages()">Leídos</a>
+    <a (click)="getUnreadMessages()">No leídos</a>
+    <a (click)="getFormMessages()">Formulario web</a>
+    <a (click)="getInternalMessages()">Mensajes internos</a>
+  </div>
+  <div class="messagesBox">
+    <div *ngFor="let message of filteredList;">
+      <div class="messageCard">
+        <div class="messageHeader">
+          <p>{{message.name}}</p>
+          <p *ngIf="!message.read">No leído</p>
+          <p *ngIf="message.read">Leído</p>
+        </div>
+        <div class="messageBody">
+          <p class="email">{{message.email}}</p>
+          <p class="message">{{message.message}}</p>
+        </div>
+        <div class="messageFooter">
+          <p class="label">{{message.label}}</p>
+          <p>{{message._id}}</p>
+        </div>
+        <div class="messageActions">
+          <a>Editar</a>
+          <a>Eliminar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
