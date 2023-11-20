@@ -79,7 +79,8 @@ export class ContactComponent {
       email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
       message: ['', [Validators.required, Validators.maxLength(300)]],
       company: ['', [Validators.required, Validators.pattern(this.urlRegex)]],
-      label: ['Contact Form - Website'],
+      label: ['contact form - website'],
+      read: [false],
       date: [this.currentDate]
     });
     //FormControls

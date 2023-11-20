@@ -33,6 +33,11 @@ const routes: Routes = [
       import('./pages/my-area/sign-in/sign-in.module').then(m => m.SignInModule)
   },
   {
+    path: `messages`, loadChildren: () =>
+      import('./pages/my-area/messages/messages.module').then(m => m.MessagesModule),
+      canActivate: [AuthGuard]
+  },
+  {
     path: `amazon-solutions`, loadChildren: () =>
       import('./pages/graphic-design/amazon-solutions/amazon-solutions.module').then(m => m.AmazonSolutionsModule)
   },

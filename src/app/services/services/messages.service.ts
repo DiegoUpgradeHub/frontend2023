@@ -63,6 +63,13 @@ export class MessagesService {
       catchError(this.handleError)
     )
   };
+  deleteThisMessage(id: string): Observable<any> {
+    let api = `${this.endpoint}/delete/${id}`;
+    return this.http.delete(api)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
 
   // Gestión de errores
   handleError(error: HttpErrorResponse) {
