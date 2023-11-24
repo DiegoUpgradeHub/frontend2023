@@ -3,9 +3,11 @@
 
 // GENERAL STYLES
 .aboutContainer {
-  margin-top: 100px;
+  margin-top: 10px;
+  padding-top: 50px;
   @include displayFlex (row wrap, center, flex-start);
   @include medium12();
+  @include transparentLight();
   width: 100%;
   .firstBlock {
     width:45%;

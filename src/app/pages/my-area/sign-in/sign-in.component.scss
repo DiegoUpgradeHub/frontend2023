@@ -4,7 +4,7 @@
 .pageContainer {
   @include displayFlex (column wrap, center, center);
   width: 100%;
-  margin: 100px 0 0 0;
+  margin: 100px 0 50px 0;
 }
 
 .contactFormContainer {
@@ -57,17 +57,13 @@
 //Footer styles
 .footerFix {
   display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
-// @media (min-width: 1440px) {
-//   .footerFix {
-//     display: block;
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//   }
-// }
+@media (min-height:600px) {
+  .footerFix {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

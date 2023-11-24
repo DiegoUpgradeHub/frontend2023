@@ -6,13 +6,13 @@
   @include displayFlex (column wrap, center, flex-start);
   @include light();
   border-radius: 10px;;
-  width: 90%;
+  width: 100%;
   h1 {
     line-height: 1.7rem;
     margin: 10px;
   }
   .filtersBox {
-    @include displayFlex (row nowrap, center, center);
+    @include displayFlex (row wrap, center, center);
     a {
       @include displayFlex (row nowrap, center, center);
       @include dark();
@@ -33,7 +33,7 @@
     margin: 2%;
     .messageCard {
       @include displayFlex (column nowrap, center, center);
-      width: 350px;
+      width: 300px;
       border-radius: 5px;
       margin: 5px;
       .messageHeader {
@@ -98,6 +98,12 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .messagesBox {
+      @include displayFlex (row wrap, center, center);
     }
   }
 
