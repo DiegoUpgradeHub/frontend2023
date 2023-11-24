@@ -42,6 +42,10 @@ export class MessagesComponent {
       console.log('filtered: ', this.filteredList);
     });
   }
+  //Obtener un mensaje
+  getThisMessage(message: any): void {
+    this.thisMessage = message;
+  }
   //FILTRADO POR: READ
   getUnreadMessages(){
     this.filteredList = this.messagesList.filter(message => message.read == false);
@@ -71,6 +75,21 @@ export class MessagesComponent {
       alert('No messages founds');
       window.location.reload();
     }
+  }
+  // //DELETE MESSAGE
+  deletingMessage(message: any): void {
+    this.messagesService.deleteMessage(message).subscribe(() => {
+      //TODO EL FALLO QUE TUVE LA ULTIMA VEZ FUE NO PONE EL SUBSCRIBE.
+      window.location.reload();
+    });
+  }
+  //EDIT MESSAGE
+  editingMessage(message: any): void {
+    message.read = !message.read
+    this.messagesService.editMessage(message).subscribe(() => {
+      //TODO EL FALLO QUE TUVE LA ULTIMA VEZ FUE NO PONE EL SUBSCRIBE.
+      window.location.reload();
+    });
   }
 
 }

@@ -16,7 +16,9 @@
           <p *ngIf="message.read">Leído</p>
         </div>
         <div class="messageBody">
+          <p>{{message.date}}</p>
           <p class="email">{{message.email}}</p>
+          <p class="company">{{message.company}}</p>
           <p class="message">{{message.message}}</p>
         </div>
         <div class="messageFooter">
@@ -24,8 +26,24 @@
           <p>{{message._id}}</p>
         </div>
         <div class="messageActions">
-          <a>Editar</a>
-          <a>Eliminar</a>
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editModal" (click)="editingMessage(message)">{{ 'Edit' | translate }}</a>
+          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="getThisMessage(message)">{{ 'Delete' | translate }}</a>
+
+          <!-- MODAL FOR DELETE -->
+            <div class="modal modalText fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You are about to delete a message from' | translate }} {{this.thisMessage.name}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <a class="button buttonModal" (click)="deletingMessage(this.thisMessage)">{{ 'Delete' | translate }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>

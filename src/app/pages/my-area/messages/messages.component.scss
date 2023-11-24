@@ -3,8 +3,10 @@
 
 // GENERAL STYLES
 .messagesContainer {
-  @include displayFlex (column nowrap, center, flex-start);
-  max-width: 900px;
+  @include displayFlex (column wrap, center, flex-start);
+  @include light();
+  border-radius: 10px;;
+  width: 90%;
   h1 {
     line-height: 1.7rem;
     margin: 10px;
@@ -13,7 +15,7 @@
     @include displayFlex (row nowrap, center, center);
     a {
       @include displayFlex (row nowrap, center, center);
-      @include light();
+      @include dark();
       @include bold12();
       line-height: nomrla;
       margin: 10px;
@@ -23,9 +25,12 @@
   }
   .messagesBox {
     @include displayFlex (row nowrap, flex-start, flex-start);
+    @include transparentDark();
+    border-radius: 5px;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width: 900px;
+    max-width: 96%;
+    margin: 2%;
     .messageCard {
       @include displayFlex (column nowrap, center, center);
       width: 350px;
@@ -52,6 +57,10 @@
           @include bold12();
           line-height: normal;
         }
+        .company {
+          @include italic12();
+          line-height: normal;
+        }
         .message {
           width: 100%;
           @include medium12();
@@ -75,11 +84,25 @@
         @include transparentDark();
         @include bold16();
         width: 100%;
-        padding: 15px;
+        padding: 10px;
         border-radius: 0 0 5px 5px;
+        .button {
+          @include displayFlex (row wrap, center, center);
+          @include light();
+          @include bold12();
+          width: 40%;
+          border-radius: 5px;
+          padding: 5px;
+        }
+        .buttonModal {
+          width: 100%;
+        }
       }
     }
   }
 
   //CRUD BOX
+  .modalText {
+    color: black;
+  }
 }
