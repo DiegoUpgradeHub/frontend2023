@@ -12,6 +12,7 @@ export class MessagesService {
 
   //Definimos el endpoint y header para hacer la API request
   endpoint: string = 'https://diegoperez-server.vercel.app/messages';
+  // endpoint: string = 'http://localhost:4000/messages';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor (
@@ -46,8 +47,7 @@ export class MessagesService {
 
   //Editar un mensaje
   editMessage(message: Message ): Observable<any> {
-    let id = message._id
-    let api = `${this.endpoint}/edit/${id}`;
+    let api = `${this.endpoint}/edit/${message._id}`;
     return this.http.put(api, message)
     .pipe(
       catchError(this.handleError)
@@ -56,20 +56,12 @@ export class MessagesService {
 
   //Eliminar un mensaje
   deleteMessage(message: Message): Observable<any> {
-    let id = message._id
-    let api = `${this.endpoint}/delete/${id}`;
+    let api = `${this.endpoint}/delete/${message._id}`;
     return this.http.delete(api)
     .pipe(
       catchError(this.handleError)
     )
   };
-  deleteThisMessage(id: string): Observable<any> {
-    let api = `${this.endpoint}/delete/${id}`;
-    return this.http.delete(api)
-    .pipe(
-      catchError(this.handleError)
-    )
-  }
 
   // Gestión de errores
   handleError(error: HttpErrorResponse) {
@@ -83,6 +75,5 @@ export class MessagesService {
     }
     return throwError(msg);
   }
-
 
 }

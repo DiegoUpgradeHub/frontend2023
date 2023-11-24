@@ -3,7 +3,6 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { SharedService } from 'src/app/core/shared.service';
-import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/services/auth.service';
 
@@ -20,12 +19,6 @@ export class SignInComponent {
   //Email validator
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  // //TOGGLE CONTACT BUTTON variables
-  // contactButton: boolean = true;
-  // contactButtonSubscribed: Subscription;
-  // contactForm:boolean = false;
-  // contactFormSubscribed: Subscription;
-
   constructor(
     private sharedService: SharedService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -37,15 +30,6 @@ export class SignInComponent {
       email: [''],
       password: ['']
     })
-    // //Toggle button and form contact
-    // this.contactButtonSubscribed = sharedService.contactButtonSubscription.subscribe(value => {
-    //   this.contactButton = value;
-    //   this.changeDetectorRef.detectChanges();
-    // });
-    // this.contactFormSubscribed = sharedService.contactFormSubscription.subscribe(value => {
-    //   this.contactForm = value;
-    //   this.changeDetectorRef.detectChanges();
-    // });
   };
   ngOnInit(): void {};
 
@@ -60,10 +44,5 @@ export class SignInComponent {
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-
-  // //TOGGLE CONTACT BUTTON function
-  // showHideForm(): void {
-  //   this.sharedService.showHideForm();
-  // }
 
 }
