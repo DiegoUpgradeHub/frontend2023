@@ -15,7 +15,8 @@ export class MyAreaComponent {
   messages: any = [];
 
   //MESSAGES variables
-  showMessages: boolean = true;
+  showMessages: boolean = false;
+  showUsers: boolean = true;
 
   constructor(
     // private sharedService: SharedService,
@@ -35,7 +36,12 @@ export class MyAreaComponent {
   }
 
   showHideMessages() {
+    this.showUsers = false;
     this.showMessages = !this.showMessages;
+  }
+  showHideUsers() {
+    this.showMessages = false;
+    this.showUsers = !this.showUsers;
   }
 
 }

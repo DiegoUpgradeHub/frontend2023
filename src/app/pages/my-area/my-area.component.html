@@ -2,9 +2,10 @@
   <div class="crudBox">
     <h1>CRUD tools</h1>
     <a (click)="showHideMessages()">{{ 'Messages' | translate }}</a>
-    <a (click)="showHideMessages()">{{ 'Users' | translate }}</a>
+    <a (click)="showHideUsers()">{{ 'Users' | translate }}</a>
   </div>
-  <app-messages class="messagesBox" *ngIf="showMessages"></app-messages>
+  <app-messages *ngIf="showMessages"></app-messages>
+  <app-users *ngIf="showUsers"></app-users>
 </div>
 
 <app-footer></app-footer>

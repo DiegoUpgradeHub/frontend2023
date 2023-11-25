@@ -1,0 +1,170 @@
+<div class="messagesContainer">
+  <h1>{{ 'Users' | translate }}</h1>
+  <a class="button" data-bs-toggle="modal" data-bs-target="#createModal">{{ 'Create user' | translate }}</a>
+
+      <div class="modal modalText fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="createModalLabel">{{ 'You are creating an user' | translate }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="createUserForm" (ngSubmit)="creatingUser()">
+                <fieldset disabled class="form">
+                  <label>{{ 'User id' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="_id" placeholder="User id">
+                </fieldset>
+                <div class="form">
+                  <label> {{ 'Name' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="name" placeholder="Nombre" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Last name' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="lastName" placeholder="Last name" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Email' | translate }}</label>
+                  <input type="email" class="form-control mb-2" formControlName="email" placeholder="nombre@email.com" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Password' | translate }}</label>
+                  <input type="password" class="form-control mb-2" formControlName="password" placeholder="Mínimo 4 y máximo 8 caracteres" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Phone' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="phone" placeholder="Phone" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Company' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="company" placeholder="Company" required>
+                </div>
+                <div class="form">
+                  <label>{{ 'Brand' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="brand" placeholder="Brand" required>
+                </div>
+                <div class="form mb-3">
+                  <label>{{ 'Role' | translate }}</label>
+                  <select class="form-select form-control" formControlName="role" required>
+                    <option value="client">{{ 'Client' | translate }}</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="submit" class="btn btn-warning">Crear usuario</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="filtersBox">
+    <div class="input-group mb-3 search-bar">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Busca un usuario" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
+      <div class="input-group-append">
+        <button class="input-group-text btn-dark" (click)="searchUserName()">Buscar</button>
+      </div>
+    </div>
+    <a (click)="getAllUsers()">Todos</a>
+    <a (click)="getClient()">Clientes</a>
+    <a (click)="getAdmin()">Admin</a>
+  </div>
+  <div class="messagesBox">
+    <div *ngFor="let user of filteredList;">
+      <div class="messageCard">
+        <div class="messageHeader">
+          <p>{{user.name}} {{user.lastName}}</p>
+        </div>
+        <div class="messageBody">
+          <p class="email">{{user.email}}</p>
+          <p>{{user.phone}}</p>
+          <p>{{user.company}}</p>
+          <p>{{user.brand}}</p>
+          <p>{{user.role}}</p>
+          <p>{{user.startDate}}</p>
+        </div>
+        <div class="messageActions">
+
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editModal" (click)="getThisUser(user)">{{ 'Edit' | translate }}</a>
+
+            <div class="modal modalText fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">{{ 'You are about to edit' | translate }} {{this.thisUser.name}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="editUserForm" (ngSubmit)="editingUser(this.thisUser)">
+                      <fieldset disabled class="form">
+                        <label>{{ 'User id' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="_id" placeholder="User id" value="{{this.thisUser._id}}">
+                      </fieldset>
+                      <div class="form">
+                        <label> {{ 'Name' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="name" placeholder="Nombre" required value="{{this.thisUser.name}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Last name' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="lastName" placeholder="Last name" required value="{{this.thisUser.lastName}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Email' | translate }}</label>
+                        <input type="email" class="form-control mb-2" formControlName="email" placeholder="nombre@email.com" required value="{{this.thisUser.email}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Password' | translate }}</label>
+                        <input type="password" class="form-control mb-2" formControlName="password" placeholder="Mínimo 4 y máximo 8 caracteres" required value="{{this.thisUser.password}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Phone' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="phone" placeholder="Phone" required value="{{this.thisUser.phone}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Company' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="company" placeholder="Company" required value="{{this.thisUser.company}}">
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Brand' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="brand" placeholder="Brand" required value="{{this.thisUser.brand}}">
+                      </div>
+                      <div class="form mb-3">
+                        <label>{{ 'Role' | translate }}</label>
+                        <select class="form-select form-control" formControlName="role" required value="{{this.thisUser.role}}">
+                          <option value="client">{{ 'Client' | translate }}</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </div>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-warning">Editar usuario</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="getThisUser(user)">{{ 'Delete' | translate }}</a>
+
+            <div class="modal modalText fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You are about to delete a message from' | translate }} {{this.thisUser.name}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <a class="button buttonModal" (click)="deletingUser(this.thisUser)">{{ 'Delete' | translate }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

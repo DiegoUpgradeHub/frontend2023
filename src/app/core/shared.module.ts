@@ -37,6 +37,7 @@ import { MessagesComponent } from '../pages/my-area/messages/messages.component'
 import { ServicesComponent } from '../pages/services/services.component';
 import { GlossaryComponent } from '../pages/glossary/glossary.component';
 import { AboutComponent } from '../pages/about/about.component';
+import { UsersComponent } from '../pages/my-area/users/users.component';
 
 //Angular Material
 import { MatMenuModule } from '@angular/material/menu';
@@ -78,6 +79,7 @@ import { MatButtonModule } from '@angular/material/button';
     MyAreaComponent,
     SignInComponent,
     MessagesComponent,
+    UsersComponent,
 
     ServicesComponent,
     GlossaryComponent,
@@ -129,6 +131,7 @@ import { MatButtonModule } from '@angular/material/button';
     MyAreaComponent,
     SignInComponent,
     MessagesComponent,
+    UsersComponent,
 
     ServicesComponent,
     GlossaryComponent,

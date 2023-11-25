@@ -13,6 +13,7 @@ export class AuthService {
 
 	//Definimos el endpoint y los headers para poder realizar la petición
   endpoint: string = 'https://diegoperez-server.vercel.app/users';
+  // endpoint: string = 'http://localhost:4000/users';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   //Aquí almacenaremos el usuario
   currentUser = {};
@@ -57,6 +58,11 @@ export class AuthService {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
+  //Is not logged in
+  get isLoggedOut(): boolean {
+    let authToken = localStorage.getItem('access_token');
+    return (authToken !== null) ? false : true;
+  }
 
   //Logout
   doLogout() {
@@ -78,11 +84,50 @@ export class AuthService {
     )
   }
 
-    //ir al User area
-    userArea() {
-      let id = localStorage.getItem('_id');
-      this.router.navigate(['user-area/' + id]);
-    }
+  //ir al User area
+  userArea() {
+    let id = localStorage.getItem('_id');
+    this.router.navigate(['user-area/' + id]);
+  }
+
+  //Editar usuario
+  editUser(user: User, id: string): Observable<any> {
+    let api = `${this.endpoint}/update-user/${id}`;
+    return this.http.put(api, user)
+    .pipe(
+      catchError(this.handleError)
+    )
+  };
+
+  //Eliminar usuario
+  deleteUser(id: string): Observable<any> {
+    let api = `${this.endpoint}/delete-user/${id}`;
+    return this.http.delete(api)
+    .pipe(
+      catchError(this.handleError)
+    )
+  };
+
+  //Crear usuario
+  createUser(user: User): Observable<any> {
+    let api = `${this.endpoint}/register-user`;
+    return this.http.post(api, user)
+    .pipe(
+      catchError(this.handleError)
+    )
+  };
+
+  //Obtener todos los usuarios
+  getUsers(): Observable<any> {
+    let api = `${this.endpoint}/`;
+    // let api = `${this.endpoint}/user/`;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
 
   // Error
   handleError(error: HttpErrorResponse) {
@@ -96,4 +141,5 @@ export class AuthService {
     }
     return throwError(msg);
   }
+
 }
