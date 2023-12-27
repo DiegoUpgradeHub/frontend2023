@@ -4,7 +4,7 @@ import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: `home`, loadChildren: () =>
+    path: ``, loadChildren: () =>
       import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
@@ -86,7 +86,7 @@ const routes: Routes = [
     import ('./pages/about/about.module').then(m => m.AboutModule)
   },
 
-  { path: ``, redirectTo: `home`, pathMatch: `full` }
+  { path: `home`, redirectTo: ``, pathMatch: `full` }
 ];
 
 @NgModule({
