@@ -42,7 +42,7 @@ export class AuthService {
 				//Seteamos el token y id del usuario en el localStorage
         this.getUserProfile(res._id).subscribe((res) => {
           this.currentUser = res;
-          this.router.navigate(['/user-area/' + res.msg._id]);
+          this.router.navigate(['/user-area/' + res._id]);
 				//Redireccionamos al user-area una vez ejecutada la función
         })
       })
