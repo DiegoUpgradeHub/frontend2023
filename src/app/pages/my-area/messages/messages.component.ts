@@ -88,7 +88,7 @@ export class MessagesComponent {
     message.read = !message.read
     this.messagesService.editMessage(message).subscribe(() => {
       //TODO EL FALLO QUE TUVE LA ULTIMA VEZ FUE NO PONE EL SUBSCRIBE.
-      window.location.reload();
+      // window.location.reload();
     });
   }
 

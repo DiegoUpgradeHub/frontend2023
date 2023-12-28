@@ -1,11 +1,16 @@
 <div class="myAreaContainer">
   <div class="crudBox">
-    <h1>CRUD tools</h1>
+    <h1>{{ 'My area' | translate }}</h1>
     <a (click)="showHideMessages()">{{ 'Messages' | translate }}</a>
     <a (click)="showHideUsers()">{{ 'Users' | translate }}</a>
+    <a (click)="showHideTasks()">{{ 'Tasks' | translate }}</a>
   </div>
-  <app-messages *ngIf="showMessages"></app-messages>
-  <app-users *ngIf="showUsers"></app-users>
+  <div class="panelsContainer">
+    <!-- <app-messages class="panel" *ngIf="showMessages"></app-messages> -->
+    <app-messages class="panel" *ngIf="showTasks"></app-messages>
+    <app-users class="panel" *ngIf="showUsers"></app-users>
+    <app-users class="panel" *ngIf="showUsers"></app-users>
+  </div>
 </div>
 
 <app-footer></app-footer>

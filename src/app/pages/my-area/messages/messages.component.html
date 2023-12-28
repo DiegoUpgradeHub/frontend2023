@@ -1,40 +1,49 @@
 <div class="messagesContainer">
-  <h1>{{ 'Messages' | translate }}</h1>
+  <div class="tittleBox">
+    <h1>{{ 'Messages' | translate }}</h1>
+  </div>
   <div class="filtersBox">
-    <a (click)="getMessages()">Todos</a>
-    <a (click)="getReadMessages()">Leídos</a>
-    <a (click)="getUnreadMessages()">No leídos</a>
-    <a (click)="getFormMessages()">Formulario web</a>
-    <a (click)="getInternalMessages()">Mensajes internos</a>
+    <a (click)="getMessages()">{{ 'All' | translate }}</a>
+    <!-- <a (click)="getReadMessages()">Leídos</a>
+    <a (click)="getUnreadMessages()">No leídos</a> -->
+    <a (click)="getFormMessages()">{{ 'Website form' | translate }}</a>
+    <a (click)="getInternalMessages()">{{ 'Internal messages' | translate }}</a>
   </div>
   <div class="messagesBox">
     <div *ngFor="let message of filteredList;">
       <div class="messageCard">
-        <div class="messageHeader">
-          <p>{{message.name}}</p>
-          <p *ngIf="!message.read">No leído</p>
-          <p *ngIf="message.read">Leído</p>
-        </div>
-        <div class="messageBody">
-          <p>{{message.date}}</p>
-          <p class="email">{{message.email}}</p>
-          <p class="company">{{message.company}}</p>
-          <p class="message">{{message.message}}</p>
-        </div>
-        <div class="messageFooter">
+        <div class="messageInfo">
+          <p class="name">{{message.name}}</p>
           <p class="label">{{message.label}}</p>
-          <p>{{message._id}}</p>
         </div>
-        <div class="messageActions">
-          <a  class="button" data-bs-toggle="modal" data-bs-target="#editModal" (click)="editingMessage(message)">{{ 'Edit' | translate }}</a>
-          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="getThisMessage(message)">{{ 'Delete' | translate }}</a>
+        <div class="crudContainer">
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#detailsMessageModal">{{ 'Details' | translate }}</a>
+          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteMessageModal" (click)="getThisMessage(message)">{{ 'Delete' | translate }}</a>
+
+          <!-- MODAL FOR DETAILS -->
+          <div class="modal modalText fade" id="detailsMessageModal" tabindex="-1" aria-labelledby="detailsMessageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="detailsMessageModalLabel">{{ 'Message from: ' | translate }} {{message.name}}</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p class="date">{{message.date}}</p>
+                  <p class="email">{{message.email}}</p>
+                  <p class="company">{{message.company}}</p>
+                  <p class="message">{{message.message}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- MODAL FOR DELETE -->
-            <div class="modal modalText fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal modalText fade" id="deleteMessageModal" tabindex="-1" aria-labelledby="deleteMessageModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You are about to delete a message from' | translate }} {{this.thisMessage.name}}</h1>
+                    <h1 class="modal-title fs-5" id="deleteMessageModalLabel">{{ 'You sure you want to delete message from: ' | translate }} {{this.thisMessage.name}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">

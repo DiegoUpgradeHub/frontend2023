@@ -114,7 +114,7 @@ export class UsersComponent {
   getAdmin(){
     this.filteredList = this.usersList.filter(user => user.role == 'admin');
   }
-  // //DELETE MESSAGE
+  // //DELETE USER
   deletingUser(user: any): void {
     this.authService.deleteUser(user._id).subscribe(() => {
       //TODO EL FALLO QUE TUVE LA ULTIMA VEZ FUE NO PONE EL SUBSCRIBE.

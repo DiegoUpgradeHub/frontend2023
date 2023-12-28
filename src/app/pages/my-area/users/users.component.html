@@ -1,7 +1,9 @@
-<div class="messagesContainer">
-  <h1>{{ 'Users' | translate }}</h1>
-  <a class="button" data-bs-toggle="modal" data-bs-target="#createModal">{{ 'Create user' | translate }}</a>
-
+<div class="usersContainer">
+  <div class="tittleBox">
+    <h1>{{ 'Users' | translate }}</h1>
+    <a class="button" data-bs-toggle="modal" data-bs-target="#createModal">{{ 'Create user' | translate }}</a>
+  </div>
+    <!-- MODAL PARA EDITAR -->
       <div class="modal modalText fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -17,31 +19,31 @@
                 </fieldset>
                 <div class="form">
                   <label> {{ 'Name' | translate }}</label>
-                  <input type="text" class="form-control mb-2" formControlName="name" placeholder="Nombre" required>
+                  <input type="text" class="form-control mb-2" formControlName="name" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Last name' | translate }}</label>
-                  <input type="text" class="form-control mb-2" formControlName="lastName" placeholder="Last name" required>
+                  <input type="text" class="form-control mb-2" formControlName="lastName" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Email' | translate }}</label>
-                  <input type="email" class="form-control mb-2" formControlName="email" placeholder="nombre@email.com" required>
+                  <input type="email" class="form-control mb-2" formControlName="email" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Password' | translate }}</label>
-                  <input type="password" class="form-control mb-2" formControlName="password" placeholder="Mínimo 4 y máximo 8 caracteres" required>
+                  <input type="password" class="form-control mb-2" formControlName="password" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Phone' | translate }}</label>
-                  <input type="text" class="form-control mb-2" formControlName="phone" placeholder="Phone" required>
+                  <input type="text" class="form-control mb-2" formControlName="phone" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Company' | translate }}</label>
-                  <input type="text" class="form-control mb-2" formControlName="company" placeholder="Company" required>
+                  <input type="text" class="form-control mb-2" formControlName="company" placeholder="" required>
                 </div>
                 <div class="form">
                   <label>{{ 'Brand' | translate }}</label>
-                  <input type="text" class="form-control mb-2" formControlName="brand" placeholder="Brand" required>
+                  <input type="text" class="form-control mb-2" formControlName="brand" placeholder="" required>
                 </div>
                 <div class="form mb-3">
                   <label>{{ 'Role' | translate }}</label>
@@ -58,43 +60,34 @@
           </div>
         </div>
       </div>
+
   <div class="filtersBox">
-    <div class="input-group mb-3 search-bar">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-      </div>
-      <input type="text" class="form-control" placeholder="Busca un usuario" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
+    <div class="input-group mb-3 search-bar searchBar">
+      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
       <div class="input-group-append">
-        <button class="input-group-text btn-dark" (click)="searchUserName()">Buscar</button>
+        <button class="input-group-text btn-dark" (click)="searchUserName()">{{ 'Search' | translate }}</button>
       </div>
     </div>
     <a (click)="getAllUsers()">Todos</a>
     <a (click)="getClient()">Clientes</a>
     <a (click)="getAdmin()">Admin</a>
   </div>
-  <div class="messagesBox">
+  <div class="usersBox">
     <div *ngFor="let user of filteredList;">
-      <div class="messageCard">
-        <div class="messageHeader">
-          <p>{{user.name}} {{user.lastName}}</p>
+      <div class="userCard">
+        <div class="userInfo">
+          <p class="name">{{user.name}} {{user.lastName}}</p>
+          <p class="idNumber">{{user._id}}</p>
         </div>
-        <div class="messageBody">
-          <p class="email">{{user.email}}</p>
-          <p>{{user.phone}}</p>
-          <p>{{user.company}}</p>
-          <p>{{user.brand}}</p>
-          <p>{{user.role}}</p>
-          <p>{{user.startDate}}</p>
-        </div>
-        <div class="messageActions">
+        <div class="crudContainer">
 
-          <a  class="button" data-bs-toggle="modal" data-bs-target="#editModal" (click)="getThisUser(user)">{{ 'Edit' | translate }}</a>
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editUserModal" (click)="getThisUser(user)">{{ 'Edit' | translate }}</a>
 
-            <div class="modal modalText fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal modalText fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModalLabel">{{ 'You are about to edit' | translate }} {{this.thisUser.name}}</h1>
+                    <h1 class="modal-title fs-5" id="editUserModalLabel">{{ 'You are about to edit' | translate }} {{this.thisUser.name}} {{this.thisUser.lastName}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -153,7 +146,7 @@
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You are about to delete a message from' | translate }} {{this.thisUser.name}}</h1>
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You sure you want to delete user: ' | translate }} {{this.thisUser.name}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">

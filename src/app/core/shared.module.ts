@@ -33,11 +33,12 @@ import { MaintenanceSupportComponent } from '../pages/web-development/maintenanc
 import { MyAreaComponent } from '../pages/my-area/my-area.component';
 import { SignInComponent } from '../pages/my-area/sign-in/sign-in.component';
 import { MessagesComponent } from '../pages/my-area/messages/messages.component';
+import { UsersComponent } from '../pages/my-area/users/users.component';
+import { TasksComponent } from '../pages/my-area/tasks/tasks.component';
 
 import { ServicesComponent } from '../pages/services/services.component';
 import { GlossaryComponent } from '../pages/glossary/glossary.component';
 import { AboutComponent } from '../pages/about/about.component';
-import { UsersComponent } from '../pages/my-area/users/users.component';
 
 //Angular Material
 import { MatMenuModule } from '@angular/material/menu';
@@ -80,6 +81,7 @@ import { MatButtonModule } from '@angular/material/button';
     SignInComponent,
     MessagesComponent,
     UsersComponent,
+    TasksComponent,
 
     ServicesComponent,
     GlossaryComponent,
@@ -132,6 +134,7 @@ import { MatButtonModule } from '@angular/material/button';
     SignInComponent,
     MessagesComponent,
     UsersComponent,
+    TasksComponent,
 
     ServicesComponent,
     GlossaryComponent,
