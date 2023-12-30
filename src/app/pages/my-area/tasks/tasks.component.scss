@@ -1,0 +1,100 @@
+@import "../../../styles/helpers";
+@import "../../../styles/colors";
+
+// GENERAL STYLES
+.usersContainer {
+  @include displayFlex (column wrap, center, center);
+  @include light();
+  border-radius: 10px;;
+  width: 100%;
+  padding: 5px;
+  .tittleBox {
+    @include displayFlex (row wrap, space-between, center);
+    width: 100%;
+    padding: 5px;
+    h1 {
+      line-height: 1.7rem;
+      margin: 10px;
+    }
+    .button {
+      @include displayFlex (row wrap, center, center);
+      @include transparentDark();
+      @include bold12();
+      width: 40%;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+  .filtersBox {
+    @include displayFlex (row wrap, center, center);
+    width: 100%;
+    .searchBar {
+      margin: 15px;
+    }
+    a {
+      @include displayFlex (row nowrap, center, center);
+      @include dark();
+      @include bold12();
+      line-height: normal;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 5px;
+      width: 30%;
+    }
+  }
+  .usersBox {
+    @include displayFlex (column nowrap, flex-start, flex-start);
+    border-radius: 5px;
+    width: 100%;
+    .userCard {
+      @include displayFlex (column nowrap, center, center);
+      width: 420px;
+      border-radius: 5px;
+      margin: 5px 0;
+      .userInfo {
+        @include displayFlex (column nowrap, flex-start, flex-start);
+        width: 100%;
+        padding: 0 15px;
+        .name {
+          @include bold16();
+        }
+        .idNumber {
+          @include medium12();
+        }
+        p {
+          line-height: normal;
+          margin: 0;
+        }
+      }
+      .crudContainer {
+        @include displayFlex (row nowrap, space-between, center);
+        @include bold16();
+        width: 100%;
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        .button {
+          @include displayFlex (row wrap, center, center);
+          @include transparentDark();
+          @include bold12();
+          width: 40%;
+          border-radius: 5px;
+          padding: 5px;
+        }
+        .buttonModal {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .messagesBox {
+      @include displayFlex (row wrap, center, center);
+    }
+  }
+
+  //CRUD BOX
+  .modalText {
+    color: black;
+  }
+}

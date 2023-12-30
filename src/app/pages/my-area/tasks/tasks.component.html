@@ -1,1 +1,137 @@
-<p>tasks works!</p>
+<div class="usersContainer">
+  <div class="tittleBox">
+    <h1>{{ 'Tasks' | translate }}</h1>
+    <a class="button" data-bs-toggle="modal" data-bs-target="#createTaskModal">{{ 'Create task' | translate }}</a>
+  </div>
+    <!-- MODAL PARA CREAR -->
+      <div class="modal modalText fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTasModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="createTasModalLabel">{{ 'You are creating an user' | translate }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="createTaskForm" (ngSubmit)="creatingTask()">
+                <fieldset disabled class="form">
+                  <label>{{ 'Task Id' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="_id" placeholder="Task Id">
+                </fieldset>
+                <select class="form-select" formControlName="client" required>
+                  <option selected disabled>{{ 'Select client' | translate }}</option>
+                  <option *ngFor="let client of clients" [value]="client._id">{{ client.name }} {{ client.lastName }}</option>
+                </select>
+                <div class="form">
+                  <label>{{ 'Date start' | translate }}</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control mb-2" formControlName="dateStart" placeholder="" >
+                    <button class="btn btn-outline-secondary" type="button" (click)="setStartDate()">{{ 'Start' | translate }}</button>
+                  </div>
+                </div>
+                <div class="form">
+                  <label>{{ 'Date end' | translate }}</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control mb-2" formControlName="dateEnd" placeholder="" >
+                    <button class="btn btn-outline-secondary" type="button" (click)="setEndDate()">{{ 'End' | translate }}</button>
+                  </div>
+                </div>
+                <div class="form">
+                  <label>{{ 'Description' | translate }}</label>
+                  <input type="text" class="form-control mb-2" formControlName="description" placeholder="" >
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">{{ 'Create task' | translate }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="filtersBox">
+    <div class="input-group mb-3 search-bar searchBar">
+      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
+      <div class="input-group-append">
+        <button class="input-group-text btn-dark" (click)="searchTaskByClient()">{{ 'Search' | translate }}</button>
+      </div>
+    </div>
+  </div>
+  <div class="usersBox">
+    <div *ngFor="let task of filteredList;">
+      <div class="userCard">
+        <div class="userInfo">
+          <p class="name">{{task.client.name}} {{task.client.lastName}}</p>
+          <!-- <p class="idNumber">{{task._id}}</p> -->
+          <p class="idNumber">{{ formattedStartDate(task) }}</p>
+          <p class="idNumber">{{ 'Total time'}}: {{ getElapsedTime(task) }}</p>
+        </div>
+        <div class="crudContainer">
+
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editTaskModal" (click)="getThisTask(task)">{{ 'Edit' | translate }}</a>
+          <!--MODAL PARA EDITAR-->
+            <div class="modal modalText fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editTaskModalLabel">{{ 'You are about to edit' | translate }} {{ this.thisTask.client?.name }} {{ this.thisTask.client?.lastName }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="editTaskForm" (ngSubmit)="editingTask(this.thisTask)">
+                      <fieldset disabled class="form">
+                        <label>{{ 'Task Id' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="_id" placeholder="User id" value="{{this.thisTask._id}}">
+                      </fieldset>
+                      <label>{{ 'Client Id' | translate }}</label>
+                      <select class="form-select" formControlName="client" required>
+                        <option selected disabled>{{this.thisTask.client?.name}} {{this.thisTask.client?.lastName}}</option>
+                        <option *ngFor="let client of clients" [value]="client?._id">{{ client.name }} {{ client.lastName }}</option>
+                      </select>
+                      <div class="form">
+                        <label>{{ 'Date start' | translate }}</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control mb-2" formControlName="dateStart" placeholder="" value="{{this.thisTask.dateStart}}">
+                          <button class="btn btn-outline-secondary" type="button" (click)="editStartDate()">{{ 'Start' | translate }}</button>
+                        </div>
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Date end' | translate }}</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control mb-2" formControlName="dateEnd" placeholder="" value="{{this.thisTask.dateEnd}}">
+                          <button class="btn btn-outline-secondary" type="button" (click)="editEndDate()">{{ 'End' | translate }}</button>
+                        </div>
+                      </div>
+                      <div class="form">
+                        <label>{{ 'Description' | translate }}</label>
+                        <input type="text" class="form-control mb-2" formControlName="description" placeholder=""  value="{{this.thisTask.description}}">
+                      </div>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">{{ 'Edit' | translate }}</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteTaskModal" (click)="getThisTask(task)">{{ 'Delete' | translate }}</a>
+          <!--MODAL PARA ELIMINAR-->
+            <div class="modal modalText fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteModalLabel">{{ 'You sure you want to delete task for' | translate }} {{this.thisTask.client?.name}} {{this.thisTask.client?.lastName}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <a class="button buttonModal" data-bs-dismiss="modal" (click)="deletingTask(this.thisTask)">{{ 'Delete' | translate }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
