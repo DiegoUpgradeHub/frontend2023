@@ -15,8 +15,8 @@ export class MyAreaComponent {
   messages: any = [];
 
   //MESSAGES variables
-  showMessages: boolean = true;
-  showUsers: boolean = true;
+  showMessages: boolean = false;
+  showUsers: boolean = false;
   showTasks: boolean = true;
 
   constructor(

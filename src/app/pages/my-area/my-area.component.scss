@@ -4,15 +4,16 @@
 // GENERAL STYLES
 .myAreaContainer {
   margin-top: 100px;
-  @include displayFlex (column wrap, center, center);
+  @include displayFlex (column nowrap, center, center);
   @include medium12();
   width: 100%;
+  padding: 5px;
+
   //CRUD BOX
   .crudBox {
     @include displayFlex (row wrap, center, center);
     @include transparentDark();
     border-radius: 5px;
-    margin: 20px 0 30px;
     padding: 20px;
     width: 100%;
     h1 {
@@ -29,12 +30,66 @@
   }
   //Panel box
   .panelsContainer {
-    @include displayFlex (row wrap, center, flex-start);
+    @include displayFlex (column wrap, center, center);
     width: 100%;
-    .panel {
-      // max-width: 380px;
-      width:30%;
-      margin: 5px;
+    .messagesUsersBox {
+      @include displayFlex (row wrap, space-between, flex-start);
+      width: 100%;
+      padding: 5px;
+      .panel {
+        width: 50%;
+        min-width: 330px;
+        padding: 5px;
+      }
+      .closedPanel {
+        @include displayFlex (row wrap, flex-start, center);
+        @include light();
+        width: 45%;
+        border-radius: 10px;
+        min-width: 235px;
+        padding: 25px;
+        margin: 5px;
+        h1 {
+          line-height: 1.7rem;
+          margin: 10px;
+        }
+      }
+    }
+    .tasksBox {
+      width: 100%;
+      padding: 5px;
+      .panel {
+        width: 100%;
+      }
+      .closedPanel {
+        @include displayFlex (row wrap, flex-start, center);
+        @include light();
+        width: 100%;
+        border-radius: 10px;
+        padding: 25px;
+        h1 {
+          line-height: 1.7rem;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .myAreaContainer {
+    .panelsContainer {
+      .messagesUsersBox {
+        .panel {
+          padding: 0;
+          margin: 5px 0;
+          width: 100%;
+        }
+        .closedPanel {
+          margin: 5px 0;
+          width: 100%;
+        }
+      }
     }
   }
 }

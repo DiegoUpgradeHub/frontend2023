@@ -57,17 +57,16 @@
     </div>
   </div>
   <div class="usersBox">
-    <div *ngFor="let task of filteredList;">
+    <div class="divLoop" *ngFor="let task of filteredList;">
       <div class="userCard">
         <div class="userInfo">
-          <p class="name">{{task.client.name}} {{task.client.lastName}}</p>
-          <!-- <p class="idNumber">{{task._id}}</p> -->
-          <p class="idNumber">{{ formattedStartDate(task) }}</p>
-          <p class="idNumber">{{ 'Total time'}}: {{ getElapsedTime(task) }}</p>
+          <p class="name">{{task.client.name}} {{task.client.lastName}} - {{task.client.company}}</p>
+          <p class="subInfo">{{ formattedStartDate(task) }}</p>
+          <p class="subInfo">{{ 'Total time'}}: {{ getElapsedTime(task) }}</p>
         </div>
         <div class="crudContainer">
 
-          <a  class="button" data-bs-toggle="modal" data-bs-target="#editTaskModal" (click)="getThisTask(task)">{{ 'Edit' | translate }}</a>
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editTaskModal" (click)="getThisTask(task)"><span class="material-symbols-outlined">stylus_note</span></a>
           <!--MODAL PARA EDITAR-->
             <div class="modal modalText fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -114,7 +113,7 @@
               </div>
             </div>
 
-          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteTaskModal" (click)="getThisTask(task)">{{ 'Delete' | translate }}</a>
+          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteTaskModal" (click)="getThisTask(task)"><span class="material-symbols-outlined">delete</span></a>
           <!--MODAL PARA ELIMINAR-->
             <div class="modal modalText fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

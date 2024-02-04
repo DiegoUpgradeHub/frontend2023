@@ -6,9 +6,31 @@
     <a (click)="showHideTasks()">{{ 'Tasks' | translate }}</a>
   </div>
   <div class="panelsContainer">
-    <app-messages class="panel" *ngIf="showMessages"></app-messages>
-    <app-users class="panel" *ngIf="showUsers"></app-users>
-    <app-tasks class="panel" *ngIf="showTasks"></app-tasks>
+    <div class="messagesUsersBox">
+      <div class="closedPanel" *ngIf="!showMessages" (click)="showHideMessages()">
+        <h1>{{'Messages' | translate}}</h1>
+        <div>
+          <span class="material-symbols-outlined">expand_more</span>
+        </div>
+      </div>
+      <app-messages class="panel" *ngIf="showMessages"></app-messages>
+      <div class="closedPanel" *ngIf="!showUsers" (click)="showHideUsers()">
+        <h1>{{'Users' | translate}}</h1>
+        <div>
+          <span class="material-symbols-outlined">expand_more</span>
+        </div>
+      </div>
+      <app-users class="panel" *ngIf="showUsers"></app-users>
+    </div>
+    <div class="tasksBox">
+      <div class="closedPanel" *ngIf="!showTasks" (click)="showHideTasks()">
+        <h1>{{'Tasks' | translate}}</h1>
+        <div>
+          <span class="material-symbols-outlined">expand_more</span>
+        </div>
+      </div>
+      <app-tasks class="panel" *ngIf="showTasks"></app-tasks>
+    </div>
   </div>
 </div>
 

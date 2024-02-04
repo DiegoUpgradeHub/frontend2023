@@ -3,7 +3,7 @@
 
 // GENERAL STYLES
 .messagesContainer {
-  @include displayFlex (column wrap, center, center);
+  @include displayFlex (column wrap, flex-start, center);
   @include light();
   border-radius: 10px;;
   width: 100%;
@@ -31,21 +31,27 @@
       margin: 5px;
       padding: 10px;
       border-radius: 5px;
-      // width: 30%;
+      width: 30%;
     }
   }
   .messagesBox {
     @include displayFlex (column nowrap, flex-start, flex-start);
     border-radius: 5px;
     width: 100%;
+    height: 180px;
+    overflow-y: auto;
+    .divLoop {
+      width: 100%;
+    }
     .messageCard {
-      @include displayFlex (column nowrap, center, center);
-      width: 420px;
+      @include displayFlex (row wrap, space-between, center);
+      width: 100%;
       border-radius: 5px;
       margin: 5px 0;
+      padding: 5px;
       .messageInfo {
         @include displayFlex (column nowrap, flex-start, flex-start);
-        width: 100%;
+        width: 60%;
         padding: 0 15px;
         .name {
           @include bold16();
@@ -61,14 +67,15 @@
       .crudContainer {
         @include displayFlex (row nowrap, space-between, center);
         @include bold16();
-        width: 100%;
+        width: 30%;
         padding: 10px;
         border-radius: 0 0 5px 5px;
         .button {
           @include displayFlex (row wrap, center, center);
           @include transparentDark();
           @include bold12();
-          width: 40%;
+          width: 100%;
+          margin: 0 5px;
           border-radius: 5px;
           padding: 5px;
         }

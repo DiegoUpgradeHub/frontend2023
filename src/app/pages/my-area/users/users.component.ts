@@ -95,17 +95,24 @@ export class UsersComponent {
     console.log(user);
     this.thisUser = user;
   }
-  //Buscar un usuario
+  // //Buscar un usuario
   searchUserName(){
-    this.filteredList = this.usersList.filter(user => user.name.toLowerCase() == this.searchBarValue.toLowerCase())
-  }
-  searchUserEmail(){
-    this.filteredList = this.usersList.filter(user => user.email.toLowerCase() == this.searchBarValue.toLowerCase())
+    if (!this.searchBarValue || this.searchBarValue.trim() === '') {
+      this.filteredList = this.usersList;
+    } else {
+      this.filteredList = this.usersList.filter(user => user.name.toLowerCase().includes(this.searchBarValue.toLowerCase()));
+    }
   }
   //Obtener información del input del searchbar
   getInputValue(e:any){
     this.searchBarValue = e.target.value
   }
+  //Actualización de la lista de usuarios
+  updateList(event: any): void {
+    this.getInputValue(event); // Asegúrate de tener lógica para actualizar el valor de searchBarValue
+    this.searchUserName();
+  }
+
   //Obetener usuarios Marketing
   getClient(){
     this.filteredList = this.usersList.filter(user => user.role == 'client');

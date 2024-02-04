@@ -3,7 +3,7 @@
     <h1>{{ 'Users' | translate }}</h1>
     <a class="button" data-bs-toggle="modal" data-bs-target="#createModal">{{ 'Create user' | translate }}</a>
   </div>
-    <!-- MODAL PARA EDITAR -->
+    <!-- MODAL PARA CREAR -->
       <div class="modal modalText fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -53,7 +53,7 @@
                   </select>
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="submit" class="btn btn-warning">Crear usuario</button>
+                  <button type="submit" class="btn btn-warning" (keyup.enter)="creatingUser()">{{ 'Create user' | translate }}</button>
                 </div>
               </form>
             </div>
@@ -63,25 +63,25 @@
 
   <div class="filtersBox">
     <div class="input-group mb-3 search-bar searchBar">
-      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
+      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" (keyup)="updateList($event)">
       <div class="input-group-append">
         <button class="input-group-text btn-dark" (click)="searchUserName()">{{ 'Search' | translate }}</button>
       </div>
     </div>
-    <a (click)="getAllUsers()">Todos</a>
-    <a (click)="getClient()">Clientes</a>
+    <a (click)="getAllUsers()">{{ 'All' | translate }}</a>
+    <a (click)="getClient()">{{ 'Clients' | translate }}</a>
     <a (click)="getAdmin()">Admin</a>
   </div>
   <div class="usersBox">
-    <div *ngFor="let user of filteredList;">
+    <div class="divLoop" *ngFor="let user of filteredList;">
       <div class="userCard">
         <div class="userInfo">
           <p class="name">{{user.name}} {{user.lastName}}</p>
-          <p class="idNumber">{{user._id}}</p>
+          <p class="subInfo">{{user.company}}</p>
         </div>
         <div class="crudContainer">
 
-          <a  class="button" data-bs-toggle="modal" data-bs-target="#editUserModal" (click)="getThisUser(user)">{{ 'Edit' | translate }}</a>
+          <a  class="button" data-bs-toggle="modal" data-bs-target="#editUserModal" (click)="getThisUser(user)"><span class="material-symbols-outlined">stylus_note</span></a>
 
             <div class="modal modalText fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -140,7 +140,7 @@
               </div>
             </div>
 
-          <a class="button" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="getThisUser(user)">{{ 'Delete' | translate }}</a>
+          <a class="button btnDelete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="getThisUser(user)"><span class="material-symbols-outlined">delete</span></a>
 
             <div class="modal modalText fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

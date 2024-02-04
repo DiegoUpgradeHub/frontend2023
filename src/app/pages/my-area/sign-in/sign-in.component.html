@@ -15,7 +15,7 @@
       </mat-form-field>
     </div>
     <div class="contactFormFooter">
-      <button type="submit" class="sendButton">{{"Send" | translate }}</button>
+      <button type="submit" class="sendButton" (keyup.enter)="loginUser()">{{"Send" | translate }}</button>
     </div>
   </form>
 </div>

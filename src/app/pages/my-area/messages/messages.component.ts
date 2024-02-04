@@ -16,6 +16,8 @@ export class MessagesComponent {
 
   thisMessage: any = {};
 
+  searchBarValue!: string;
+
   protected readonly clearSubscriptions$ = new Subject();
 
   constructor(
@@ -46,34 +48,50 @@ export class MessagesComponent {
   getThisMessage(message: any): void {
     this.thisMessage = message;
   }
-  //FILTRADO POR: READ
-  getUnreadMessages(){
-    this.filteredList = this.messagesList.filter(message => message.read == false);
-    if (this.filteredList.length <= 0 ) {
-      alert('No messages founds');
-      window.location.reload();
-    }
+  //Barra de búsqueda
+  //Obtener información del input del searchbar
+  getInputValue(e:any){
+    this.searchBarValue = e.target.value
   }
-  getReadMessages(){
-    this.filteredList = this.messagesList.filter(message => message.read == true);
-    if (this.filteredList.length <= 0 ) {
-      alert('No messages founds');
-      window.location.reload();
+  //Actualización de la lista de usuarios
+  updateList(event: any): void {
+    this.getInputValue(event);
+    this.searchMessageName();
+  }
+  searchMessageName(){
+    if (!this.searchBarValue || this.searchBarValue.trim() === '') {
+      this.filteredList = this.messagesList;
+    } else {
+      this.filteredList = this.messagesList.filter(message => message.name.toLowerCase().includes(this.searchBarValue.toLowerCase()));
     }
   }
   //FILTRADO POR: LABEL
   getFormMessages(){
-    this.filteredList = this.messagesList.filter(message => message.label == 'contact form - website');
-    if (this.filteredList.length <= 0 ) {
-      alert('No messages founds');
-      window.location.reload();
+    // this.filteredList = this.messagesList.filter(message => message.label == 'contact form - website');
+    // if (this.filteredList.length <= 0 ) {
+    //   alert('No messages founds');
+    //   window.location.reload();
+    // }
+    const labelToSearch = 'contact form - website';
+    this.filteredList = this.messagesList.filter(
+      message => message.label.toLowerCase() === labelToSearch.toLowerCase()
+    );
+    if (this.filteredList.length <= 0) {
+      console.error('No messages founds');
     }
   }
   getInternalMessages(){
-    this.filteredList = this.messagesList.filter(message => message.label == 'internal message');
-    if (this.filteredList.length <= 0 ) {
-      alert('No messages founds');
-      window.location.reload();
+    // this.filteredList = this.messagesList.filter(message => message.label == 'internal message');
+    // if (this.filteredList.length <= 0 ) {
+    //   alert('No messages founds');
+    //   window.location.reload();
+    // }
+    const labelToSearch = 'internal message';
+    this.filteredList = this.messagesList.filter(
+      message => message.label.toLowerCase() === labelToSearch.toLowerCase()
+    );
+    if (this.filteredList.length <= 0) {
+      console.error('No messages founds');
     }
   }
   // //DELETE MESSAGE
