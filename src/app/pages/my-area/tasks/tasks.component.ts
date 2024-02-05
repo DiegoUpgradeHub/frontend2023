@@ -28,7 +28,14 @@ export class TasksComponent {
 
   editTaskForm!: FormGroup;
   createTaskForm!: FormGroup;
-  // currentDate = new Date().toUTCString();
+
+  //Variables para filtros de búsqueda
+  selectedYear: string | null = null;
+  selectedMonth: string | null = null;
+  selectedClient: string = '';
+
+  //Variable contador de tiempo
+  totalTimeCounter: string = '';
 
   protected readonly clearSubscriptions$ = new Subject();
 
@@ -76,12 +83,11 @@ export class TasksComponent {
   }
   //Obtener todas las tareas
   getAllTasks() {
-    return this.tasksService.getTasks().pipe(takeUntil(this.clearSubscriptions$),).subscribe((data) => {
+    return this.tasksService.getTasks().pipe(takeUntil(this.clearSubscriptions$)).subscribe((data) => {
       this.tasksList = data;
-      this.filteredList = data
-      // this.filteredList.reverse(); //Cambiamos el orden del listado para que aparezcan primero los más nuevos LO HE COMENTADO PARA VER SI FUNCIONA MEJOR EL SIGUIENTE FILTRADO
-      this.sortByDateStartDescending();
-    })
+      this.applyFilters();
+      this.updateTotalTimeCounter();
+    });
   }
   //Obtener todos los usuarios
   getAllUsers() {
@@ -102,6 +108,7 @@ export class TasksComponent {
       _id: this.thisTask._id
     });
   }
+  //FILTERS FUNCTIONS
   //Buscar una tarea
   searchTaskByClient(){
     this.filteredList = this.tasksList.filter(task => task.client.name.toLowerCase() == this.searchBarValue.toLowerCase())
@@ -110,6 +117,27 @@ export class TasksComponent {
   getInputValue(e:any){
     this.searchBarValue = e.target.value
   }
+  //Aplicar filtros
+  applyFilters() {
+    this.filteredList = this.tasksList.filter(task => {
+      const yearMatch = !this.selectedYear || this.selectedYear === 'null' || new Date(task.dateStart).getFullYear() === +this.selectedYear;
+      const monthMatch = !this.selectedMonth || this.selectedMonth === 'null' || new Date(task.dateStart).getMonth() === this.getMonthNumberByName(this.selectedMonth);
+      const clientMatch = !this.selectedClient || task.client.name.toLowerCase().includes(this.selectedClient.toLowerCase());
+
+      return yearMatch && monthMatch && clientMatch;
+    });
+    this.sortByDateStartDescending();
+    this.updateTotalTimeCounter();
+  }
+
+  getMonthNumberByName(monthName: string): number {
+    const months = [
+      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+    ];
+    return months.findIndex(month => month.toLowerCase() === monthName.toLowerCase());
+  }
+
+  //CRUD FUNCTIONS
   //Eliminar Task
   deletingTask(task: any): void {
     //Variable para almacenar la ID de la tarea porque en el servicio se envía la ID directamente
@@ -140,6 +168,8 @@ export class TasksComponent {
       console.error('Error al crear la tarea:', error);
     });
   }
+
+  //TIME MANAGER FUNCTIONS
   //Start task
   setStartDate(): void {
     const currentDateTime = new Date(); // Obtiene la fecha y hora actual
@@ -224,23 +254,27 @@ export class TasksComponent {
     });
   }
 
-//   seconds = 0;
-//   timerId: any = '';
+  //TIME COUNTER FUNCTIONS
+  updateTotalTimeCounter(): void {
+    // Calcular el tiempo total aquí (puedes usar la lógica de getElapsedTime())
+    // Por ejemplo, sumar la duración de todas las tareas en filteredList
+    const totalMilliseconds = this.filteredList.reduce((total, task) => {
+      const startDate = new Date(task.dateStart);
+      const endDate = new Date(task.dateEnd);
 
-//   startTimer() {
-//     this.timerId = setInterval(this.updateTimer, 1000); // Actualiza el temporizador cada segundo (1000 milisegundos)
-//   }
+      if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+        return total + (endDate.getTime() - startDate.getTime());
+      } else {
+        return total;
+      }
+    }, 0);
 
-//   stopTimer() {
-//     clearInterval(this.timerId); // Detiene el temporizador utilizando el ID retornado por setInterval
-//   }
+    // Convertir milisegundos a horas y minutos
+    const totalHours = Math.floor(totalMilliseconds / 3600000);
+    const totalMinutes = Math.floor((totalMilliseconds % 3600000) / 60000);
 
-//   updateTimer() {
-//     this.seconds++;
-//     const timerElement = document.getElementById('timer');
-//     if (timerElement) {
-//       timerElement.textContent = `Tiempo: ${this.seconds} segundos`;
-//     }
-// }
+    // Actualizar la variable totalTimeCounter
+    this.totalTimeCounter = `${totalHours} hours ${totalMinutes} minutes`;
+  }
 
 }

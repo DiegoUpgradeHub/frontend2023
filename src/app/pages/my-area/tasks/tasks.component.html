@@ -49,13 +49,44 @@
       </div>
 
   <div class="filtersBox">
+    <!-- Searchbar -->
     <div class="input-group mb-3 search-bar searchBar">
-      <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" (keyup)="getInputValue($event)">
+      <input type="text" class="form-control" placeholder="{{ 'Search by name' | translate }}" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="selectedClient" (keyup)="applyFilters()">
       <div class="input-group-append">
-        <button class="input-group-text btn-dark" (click)="searchTaskByClient()">{{ 'Search' | translate }}</button>
+        <button class="input-group-text btn-dark" (click)="applyFilters()"><span class="material-symbols-outlined">search</span></button>
       </div>
     </div>
+    <!-- Filtro año -->
+    <div class="input-group mb-3 filterItem">
+      <select class="form-select" id="inputGroupSelect01" [(ngModel)]="selectedYear" (change)="applyFilters()">
+        <option selected value="null">{{ 'Year' | translate }}</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+      </select>
+    </div>
+    <!-- Filtro mes -->
+    <div class="input-group mb-3 filterItem">
+      <select class="form-select" id="inputGroupSelect02" [(ngModel)]="selectedMonth" (change)="applyFilters()">
+        <option selected value="null">{{ 'Month' | translate }}</option>
+        <option value="enero">{{ 'enero' | translate }}</option>
+        <option value="febrero">{{ 'febrero' | translate }}</option>
+        <option value="marzo">{{ 'marzo' | translate }}</option>
+        <option value="abril">{{ 'abril' | translate }}</option>
+        <option value="mayo">{{ 'mayo' | translate }}</option>
+        <option value="junio">{{ 'junio' | translate }}</option>
+        <option value="julio">{{ 'julio' | translate }}</option>
+        <option value="agosto">{{ 'agosto' | translate }}</option>
+        <option value="septiembre">{{ 'septiembre' | translate }}</option>
+        <option value="octubre">{{ 'octubre' | translate }}</option>
+        <option value="noviembre">{{ 'noviembre' | translate }}</option>
+        <option value="diciembre">{{ 'diciembre' | translate }}</option>
+      </select>
+    </div>
   </div>
+
+  <p class="time-counter">{{ 'Total time'}}: {{ totalTimeCounter }}</p>
+
+
   <div class="usersBox">
     <div class="divLoop" *ngFor="let task of filteredList;">
       <div class="userCard">

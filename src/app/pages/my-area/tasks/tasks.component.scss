@@ -26,10 +26,15 @@
     }
   }
   .filtersBox {
-    @include displayFlex (row wrap, center, center);
+    @include displayFlex (row nowrap, center, center);
     width: 100%;
     .searchBar {
-      margin: 15px;
+      width: 50%;
+      margin: 5px;
+    }
+    .filterItem {
+      width: 20%;
+      margin: 5px;
     }
     a {
       @include displayFlex (row nowrap, center, center);
