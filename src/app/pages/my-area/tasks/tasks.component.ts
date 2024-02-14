@@ -174,7 +174,13 @@ export class TasksComponent {
   setStartDate(): void {
     const currentDateTime = new Date(); // Obtiene la fecha y hora actual
     // Formatea la fecha y hora actual a un formato específico si es necesario
-    const formattedDateTime = `${currentDateTime.getFullYear()}-${currentDateTime.getMonth() + 1}-${currentDateTime.getDate()} ${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`;
+    const formattedDateTime = `${currentDateTime.getFullYear()}-${
+      (currentDateTime.getMonth() + 1).toString().padStart(2, '0')
+    }-${currentDateTime.getDate().toString().padStart(2, '0')} ${
+      currentDateTime.getHours().toString().padStart(2, '0')
+    }:${currentDateTime.getMinutes().toString().padStart(2, '0')}:${
+      currentDateTime.getSeconds().toString().padStart(2, '0')
+    }`;
 
     // Ahora, puedes asignar la fecha y hora actual al campo dateStart en createTaskForm
     this.createTaskForm.patchValue({
@@ -184,7 +190,13 @@ export class TasksComponent {
   editStartDate(): void {
     const currentDateTime = new Date(); // Obtiene la fecha y hora actual
     // Formatea la fecha y hora actual a un formato específico si es necesario
-    const formattedDateTime = `${currentDateTime.getFullYear()}-${currentDateTime.getMonth() + 1}-${currentDateTime.getDate()} ${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`;
+    const formattedDateTime = `${currentDateTime.getFullYear()}-${
+      (currentDateTime.getMonth() + 1).toString().padStart(2, '0')
+    }-${currentDateTime.getDate().toString().padStart(2, '0')} ${
+      currentDateTime.getHours().toString().padStart(2, '0')
+    }:${currentDateTime.getMinutes().toString().padStart(2, '0')}:${
+      currentDateTime.getSeconds().toString().padStart(2, '0')
+    }`;
 
     // Ahora, puedes asignar la fecha y hora actual al campo dateStart en createTaskForm
     this.editTaskForm.patchValue({
@@ -195,7 +207,13 @@ export class TasksComponent {
   setEndDate(): void {
     const currentDateTime = new Date(); // Obtiene la fecha y hora actual
     // Formatea la fecha y hora actual a un formato específico si es necesario
-    const formattedDateTime = `${currentDateTime.getFullYear()}-${currentDateTime.getMonth() + 1}-${currentDateTime.getDate()} ${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`;
+    const formattedDateTime = `${currentDateTime.getFullYear()}-${
+      (currentDateTime.getMonth() + 1).toString().padStart(2, '0')
+    }-${currentDateTime.getDate().toString().padStart(2, '0')} ${
+      currentDateTime.getHours().toString().padStart(2, '0')
+    }:${currentDateTime.getMinutes().toString().padStart(2, '0')}:${
+      currentDateTime.getSeconds().toString().padStart(2, '0')
+    }`;
 
     // Ahora, puedes asignar la fecha y hora actual al campo dateStart en createTaskForm
     this.createTaskForm.patchValue({
@@ -205,7 +223,13 @@ export class TasksComponent {
   editEndDate(): void {
     const currentDateTime = new Date(); // Obtiene la fecha y hora actual
     // Formatea la fecha y hora actual a un formato específico si es necesario
-    const formattedDateTime = `${currentDateTime.getFullYear()}-${currentDateTime.getMonth() + 1}-${currentDateTime.getDate()} ${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`;
+    const formattedDateTime = `${currentDateTime.getFullYear()}-${
+      (currentDateTime.getMonth() + 1).toString().padStart(2, '0')
+    }-${currentDateTime.getDate().toString().padStart(2, '0')} ${
+      currentDateTime.getHours().toString().padStart(2, '0')
+    }:${currentDateTime.getMinutes().toString().padStart(2, '0')}:${
+      currentDateTime.getSeconds().toString().padStart(2, '0')
+    }`;
 
     // Ahora, puedes asignar la fecha y hora actual al campo dateStart en createTaskForm
     this.editTaskForm.patchValue({
